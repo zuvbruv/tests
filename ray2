@@ -1040,29 +1040,28 @@ BackgroundTransparency=if m then 0 else 1},n)o:_reveal(l.fill,{BackgroundTranspa
 fillGlow,{Transparency=if m then o.theme.AccentGlow else 1},n)end function ae.Remove(l)l:_stopSweep()if l.descriptor
 then l.descriptor:Remove()end l.main:Destroy()end ai(ae)return ae end)()end,[18]=function()local aa,ab,ac=a(18)local ad
 return(function(...)local ae={}ae.__index=ae local af=ab.Parent.Parent.utility local ag,ah,ai,aj,ak,al,am,b,c,d=ac(af.
-variables),ac(af.constants),ac(af.windowSizing),30,6,25,29,TweenInfo.new(0.25,Enum.EasingStyle.Back,Enum.EasingDirection
-.Out),TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),1e-4 function ae.new(e)assert(e,
-'Missing argument #1 (Window expected)')local f=e:Create('ImageButton',{Name='ResizeGrip',Size=UDim2.fromOffset(aj,aj),
-Position=UDim2.new(1,-ak,1,-ak),AnchorPoint=Vector2.new(1,1),BackgroundTransparency=1,ZIndex=ah.zIndex.resize,
-AutoButtonColor=false,Parent=e.main})local g=e:Create('ImageLabel',{Name='ResizeGripIcon',Image=ah.icons.maximise,Size=
-UDim2.fromOffset(al,al),Position=UDim2.fromScale(0.5,0.5),AnchorPoint=Vector2.new(0.5,0.5),BackgroundTransparency=1,
-Parent=f},{ImageColor3='ActionColor'})local h,i,j,k,l,m,n,o,p,q=setmetatable({window=e,grip=f,gripIcon=g},ae),ag.
-userInputService,false,Vector2.zero,Vector2.zero,Vector2.zero,Vector2.zero,Vector2.zero,Vector2.zero,Vector2.zero if e.
-screenGui and e.screenGui.IgnoreGuiInset then q=ag.guiService:GetGuiInset()end local function r(s,t)ag.tweenService:
-Create(h.gripIcon,t,{Size=UDim2.fromOffset(s,s)}):Play()end e:Connect(h.grip.MouseEnter,function()if not j then r(am,b)
-end end)e:Connect(h.grip.MouseLeave,function()if not j then r(al,c)end end)local function s()if not j then return end j=
-false local t=h.grip.AbsolutePosition local u,v=t+h.grip.AbsoluteSize,i:GetMouseLocation()local w=v.X>=t.X and v.X<=u.X
-and v.Y>=t.Y and v.Y<=u.Y r(if w then am else al,c)end e:Connect(h.grip.InputBegan,function(t,u)if u then return end if
-not e:_interactive()or e.minimised then return end local v=t.UserInputType.Name if v~='MouseButton1'and v~='Touch'then
-return end e._userSized=true if e.screenGui and e.screenGui.IgnoreGuiInset then q=ag.guiService:GetGuiInset()end local w
-=ai.profile(e.layout.mode)o=w.minSize local x=ag.workspace.CurrentCamera local y=ai.fit(x and x.ViewportSize,e.layout.
-mode)p=Vector2.new(y.X.Offset,y.Y.Offset)k=i:GetMouseLocation()l=e.main.AbsoluteSize m=l n=e.main.AbsolutePosition+q j=
-true r(am,b)end)e:Connect(i.InputEnded,function(t)local u=t.UserInputType.Name if u=='MouseButton1'or u=='Touch'then s()
-end end)e:Connect(i.WindowFocusReleased,s)e:Connect(ag.runService.RenderStepped,function(t)if not j then return end if
-not e:_interactive()or e.minimised then s()return end local u=i:GetMouseLocation()local v,w=Vector2.new(math.clamp(l.X+(
-u.X-k.X),o.X,p.X),math.clamp(l.Y+(u.Y-k.Y),o.Y,p.Y)),if t then 1-d^t else 1 m=m+(v-m)*w local x,y=m.X,m.Y local z=UDim2.
-fromOffset(x,y)e.main.Size=z e.main.Position=UDim2.fromOffset(n.X+x/2,n.Y+y/2)e.size=z e:_applyRailWidth()e:
-_syncDragBar()end)return h end return ae end)()end,[19]=function()local aa,ab,ac=a(19)local ad return(function(...)local
+variables),ac(af.constants),ac(af.windowSizing),20,24,6,0.6,TweenInfo.new(0.25,Enum.EasingStyle.Back,Enum.
+EasingDirection.Out),TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out),1e-4 function ae.new(e)assert(e,
+'Missing argument #1 (Window expected)')local f,g,h,i,j,k,l,m,n,o=setmetatable({window=e,grip=e:Create('ImageButton',{
+Name='ResizeGrip',Image=ah.icons.maximise,Size=UDim2.fromOffset(aj,aj),Position=UDim2.new(1,-al,1,-al),AnchorPoint=
+Vector2.new(1,1),BackgroundTransparency=1,ImageTransparency=am,ZIndex=ah.zIndex.resize,AutoButtonColor=false,ScaleType=
+Enum.ScaleType.Fit,Parent=e.main},{ImageColor3='ActionColor'})},ae),ag.userInputService,false,Vector2.zero,Vector2.zero,
+Vector2.zero,Vector2.zero,Vector2.zero,Vector2.zero,Vector2.zero if e.screenGui and e.screenGui.IgnoreGuiInset then o=ag
+.guiService:GetGuiInset()end local function p(q,r,s)ag.tweenService:Create(f.grip,s,{Size=UDim2.fromOffset(q,q),
+ImageTransparency=r}):Play()end e:Connect(f.grip.MouseEnter,function()if not h then p(ak,0,b)end end)e:Connect(f.grip.
+MouseLeave,function()if not h then p(aj,am,c)end end)local function q()if not h then return end h=false local r=f.grip.
+AbsolutePosition local s,t=r+f.grip.AbsoluteSize,g:GetMouseLocation()local u=t.X>=r.X and t.X<=s.X and t.Y>=r.Y and t.Y
+<=s.Y p(if u then ak else aj,if u then 0 else am,c)end e:Connect(f.grip.InputBegan,function(r,s)if s then return end if
+not e:_interactive()or e.minimised then return end local t=r.UserInputType.Name if t~='MouseButton1'and t~='Touch'then
+return end e._userSized=true if e.screenGui and e.screenGui.IgnoreGuiInset then o=ag.guiService:GetGuiInset()end local u
+=ai.profile(e.layout.mode)m=u.minSize local v=ag.workspace.CurrentCamera local w=ai.fit(v and v.ViewportSize,e.layout.
+mode)n=Vector2.new(w.X.Offset,w.Y.Offset)i=g:GetMouseLocation()j=e.main.AbsoluteSize k=j l=e.main.AbsolutePosition+o h=
+true p(ak,0,b)end)e:Connect(g.InputEnded,function(r)local s=r.UserInputType.Name if s=='MouseButton1'or s=='Touch'then
+q()end end)e:Connect(g.WindowFocusReleased,q)e:Connect(ag.runService.RenderStepped,function(r)if not h then return end
+if not e:_interactive()or e.minimised then q()return end local s=g:GetMouseLocation()local t,u=Vector2.new(math.clamp(j.
+X+(s.X-i.X),m.X,n.X),math.clamp(j.Y+(s.Y-i.Y),m.Y,n.Y)),if r then 1-d^r else 1 k=k+(t-k)*u local v,w=k.X,k.Y local x=
+UDim2.fromOffset(v,w)e.main.Size=x e.main.Position=UDim2.fromOffset(l.X+v/2,l.Y+w/2)e.size=x e:_applyRailWidth()e:
+_syncDragBar()end)return f end return ae end)()end,[19]=function()local aa,ab,ac=a(19)local ad return(function(...)local
 ae=ab.Parent.Parent.utility local af,ag,ah,ai,aj,ak,al,am=ac(ae.variables),ac(ae.constants),ac(ae.locale),ac(ab.Parent.
 action),{},TweenInfo.new(0.25,Enum.EasingStyle.Quint,Enum.EasingDirection.Out),0.6,0.2 local function b(c)if c.__type==
 'Group'then local d={}local function e(f)for g,h in f.elements do if h.__type=='Group'then e(h)elseif h.name then table.
@@ -2739,35 +2738,35 @@ math.min(math.clamp(c,am.minSize.Y,am.defaultSize.Y),c)e=math.floor(math.min(e,d
 floor(math.min(d,e*am.maxAspectRatio))return UDim2.fromOffset(d,e)end function af.fit(am:Vector2?,b:ae.Mode?):UDim2
 local c=af.profile(b)if not am or am.X<ag or am.Y<ag then return UDim2.fromOffset(c.defaultSize.X,c.defaultSize.Y)end
 local d,e=math.min(am.X*c.maxOccupancyX,am.X-c.marginFloorX),ai(c,am.Y)if c.minAspectRatio then return al(c,d,e)end
-return ak(c,d,e)end return af end)()end},{{1,2,{'Rayfield'},{{39,2,{'types'}},{32,1,{'themes'},{{34,2,{'cobalt'}},{37,2,
-{'frost'}},{33,2,{'amethyst'}},{38,2,{'rose'}},{36,2,{'ember'}},{35,2,{'default'}}}},{2,1,{'components'},{{4,2,{'button'
-}},{30,2,{'toggle'}},{7,2,{'console'}},{9,2,{'divider'}},{27,2,{'tag'}},{3,2,{'action'}},{14,2,{'keybind'}},{17,2,{
-'progress'}},{16,2,{'popup'}},{31,2,{'window'}},{29,2,{'toast'}},{20,2,{'section'}},{18,2,{'resize'}},{8,2,{'descriptor'
-}},{11,2,{'dropdown'}},{25,2,{'tabSection'}},{10,2,{'drag'}},{23,2,{'stat'}},{5,2,{'chrome'}},{13,2,{'input'}},{19,2,{
-'search'}},{24,2,{'tab'}},{22,2,{'slider'}},{21,2,{'sidebar'}},{28,2,{'text'}},{12,2,{'group'}},{15,2,{'notification'}},
-{26,2,{'tabSelector'}},{6,2,{'colorpicker'}}}},{40,1,{'utility'},{{57,2,{'moveable'}},{59,2,{'odometer'}},{41,2,{
-'HapticEngine'}},{42,2,{'assetResolver'}},{55,2,{'lockable'}},{64,2,{'persistencePaths'}},{50,2,{'functions'}},{45,2,{
-'enums'}},{71,2,{'windowSizing'}},{70,2,{'variables'}},{49,2,{'fontManager'}},{69,2,{'textMetrics'}},{61,2,{'path'}},{47
-,2,{'filesystemManager'}},{46,2,{'filesystem'}},{68,2,{'services'}},{62,2,{'persistence'}},{63,2,{'persistenceConfig'}},
-{60,2,{'ordering'}},{53,2,{'layouts'}},{66,2,{'persistenceWrite'}},{51,2,{'image'}},{48,2,{'flagNames'}},{65,2,{
-'persistenceSettings'}},{58,2,{'network'}},{56,2,{'log'}},{67,2,{'runtime'}},{52,2,{'imageCache'}},{54,2,{'locale'}},{44
-,2,{'constants'}},{43,2,{'colors'}}}}}}},'0.4.1','Rayfield',string,task,setmetatable,error,next,table,unpack,coroutine,
-script,type,require,pcall,xpcall,tostring,tonumber,_VERSION local j,k,l,m,n,o,p=aj.insert,aj.remove,aj.freeze or
-function(j)return j end,al.wrap,ae.sub,ae.match,ae.gmatch if h and n(h,1,4)=='Lune'then local q,r=d(c,'@lune/task')if q
-and r then af=r end end local q=af and af.defer local r,s,t,u,v,w,x,y,z=q or function(r,...)m(r)(...)end,{[1]='Folder',[
-2]='ModuleScript',[3]='Script',[4]='LocalScript',[5]='StringValue'},{},{},{},{},{},{},{}local A,B={GetFullName={{},
-function(A)local B,C=A.Name,A.Parent while C do B=C.Name..'.'..B C=C.Parent end return B end},GetChildren={{},function(A
-)local B={}for C in ai,z[A]do j(B,C)end return B end},GetDescendants={{},function(A)local B={}for C in ai,z[A]do j(B,C)
-for D,E in ai,C:GetDescendants()do j(B,E)end end return B end},FindFirstChild={{'string','boolean?'},function(A,B,C)
-local D=z[A]for E in ai,D do if E.Name==B then return E end end if C then for E in ai,D do return E:FindFirstChild(B,
-true)end end end},FindFirstAncestor={{'string'},function(A,B)local C=A.Parent while C do if C.Name==B then return C end
-C=C.Parent end end},WaitForChild={{'string','number?'},function(A,B)return A:FindFirstChild(B)end}},{}for C,D in ai,A do
-local E,F,G=D[1],D[2],{}for H,I in ai,E do local J,K=o(I,'^([^%?]+)(%??)')G[H]={J,K}end B[C]=function(H,...)if not z[H]
-then ah("Expected ':' not '.' calling member function "..C,2)end local I={...}for J,K in ai,G do local L=I[J]local M,N,O
-=b(L),K[1],K[2]if L==nil and not O then ah('Argument '..L..' missing or nil',3)end if N~='any'and M~=N and not(M=='nil'
-and O)then ah('Argument '..J..' expects type "'..N..'", got "'..M..'"',2)end end return F(H,...)end end local function C
-(D,E,F)local G,H=(ag({},{__mode='k'}))local function I(J)ah(J..' is not a valid (virtual) member of '..D..' "'..E..'"',3
-)end local function J(K)ah('Unable to assign (virtual) property '..K..'. Property is read only',3)end local K,L={},{}L.
+return ak(c,d,e)end return af end)()end},{{1,2,{'Rayfield'},{{32,1,{'themes'},{{38,2,{'rose'}},{33,2,{'amethyst'}},{36,2
+,{'ember'}},{37,2,{'frost'}},{34,2,{'cobalt'}},{35,2,{'default'}}}},{39,2,{'types'}},{40,1,{'utility'},{{54,2,{'locale'}
+},{65,2,{'persistenceSettings'}},{67,2,{'runtime'}},{44,2,{'constants'}},{41,2,{'HapticEngine'}},{57,2,{'moveable'}},{69
+,2,{'textMetrics'}},{68,2,{'services'}},{60,2,{'ordering'}},{70,2,{'variables'}},{42,2,{'assetResolver'}},{51,2,{'image'
+}},{56,2,{'log'}},{49,2,{'fontManager'}},{64,2,{'persistencePaths'}},{58,2,{'network'}},{53,2,{'layouts'}},{71,2,{
+'windowSizing'}},{55,2,{'lockable'}},{46,2,{'filesystem'}},{63,2,{'persistenceConfig'}},{62,2,{'persistence'}},{61,2,{
+'path'}},{59,2,{'odometer'}},{43,2,{'colors'}},{66,2,{'persistenceWrite'}},{47,2,{'filesystemManager'}},{45,2,{'enums'}}
+,{48,2,{'flagNames'}},{52,2,{'imageCache'}},{50,2,{'functions'}}}},{2,1,{'components'},{{26,2,{'tabSelector'}},{17,2,{
+'progress'}},{4,2,{'button'}},{16,2,{'popup'}},{13,2,{'input'}},{11,2,{'dropdown'}},{15,2,{'notification'}},{31,2,{
+'window'}},{30,2,{'toggle'}},{29,2,{'toast'}},{10,2,{'drag'}},{28,2,{'text'}},{20,2,{'section'}},{7,2,{'console'}},{25,2
+,{'tabSection'}},{24,2,{'tab'}},{9,2,{'divider'}},{18,2,{'resize'}},{3,2,{'action'}},{22,2,{'slider'}},{21,2,{'sidebar'}
+},{6,2,{'colorpicker'}},{27,2,{'tag'}},{8,2,{'descriptor'}},{14,2,{'keybind'}},{23,2,{'stat'}},{19,2,{'search'}},{5,2,{
+'chrome'}},{12,2,{'group'}}}}}}},'0.4.1','Rayfield',string,task,setmetatable,error,next,table,unpack,coroutine,script,
+type,require,pcall,xpcall,tostring,tonumber,_VERSION local j,k,l,m,n,o,p=aj.insert,aj.remove,aj.freeze or function(j)
+return j end,al.wrap,ae.sub,ae.match,ae.gmatch if h and n(h,1,4)=='Lune'then local q,r=d(c,'@lune/task')if q and r then
+af=r end end local q=af and af.defer local r,s,t,u,v,w,x,y,z=q or function(r,...)m(r)(...)end,{[1]='Folder',[2]=
+'ModuleScript',[3]='Script',[4]='LocalScript',[5]='StringValue'},{},{},{},{},{},{},{}local A,B={GetFullName={{},function
+(A)local B,C=A.Name,A.Parent while C do B=C.Name..'.'..B C=C.Parent end return B end},GetChildren={{},function(A)local B
+={}for C in ai,z[A]do j(B,C)end return B end},GetDescendants={{},function(A)local B={}for C in ai,z[A]do j(B,C)for D,E
+in ai,C:GetDescendants()do j(B,E)end end return B end},FindFirstChild={{'string','boolean?'},function(A,B,C)local D=z[A]
+for E in ai,D do if E.Name==B then return E end end if C then for E in ai,D do return E:FindFirstChild(B,true)end end
+end},FindFirstAncestor={{'string'},function(A,B)local C=A.Parent while C do if C.Name==B then return C end C=C.Parent
+end end},WaitForChild={{'string','number?'},function(A,B)return A:FindFirstChild(B)end}},{}for C,D in ai,A do local E,F,
+G=D[1],D[2],{}for H,I in ai,E do local J,K=o(I,'^([^%?]+)(%??)')G[H]={J,K}end B[C]=function(H,...)if not z[H]then ah(
+"Expected ':' not '.' calling member function "..C,2)end local I={...}for J,K in ai,G do local L=I[J]local M,N,O=b(L),K[
+1],K[2]if L==nil and not O then ah('Argument '..L..' missing or nil',3)end if N~='any'and M~=N and not(M=='nil'and O)
+then ah('Argument '..J..' expects type "'..N..'", got "'..M..'"',2)end end return F(H,...)end end local function C(D,E,F
+)local G,H=(ag({},{__mode='k'}))local function I(J)ah(J..' is not a valid (virtual) member of '..D..' "'..E..'"',3)end
+local function J(K)ah('Unable to assign (virtual) property '..K..'. Property is read only',3)end local K,L={},{}L.
 __metatable=false L.__index=function(M,N)if N=='ClassName'then return D elseif N=='Name'then return E elseif N=='Parent'
 then return F elseif D=='StringValue'and N=='Value'then return H else local O=B[N]if O then return O end end for O in ai
 ,G do if O.Name==N then return O end end I(N)end L.__newindex=function(M,N,O)if N=='ClassName'then J(N)elseif N=='Name'
