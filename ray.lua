@@ -1045,9 +1045,9 @@ Out),TweenInfo.new(0.3,Enum.EasingStyle.Quad,Enum.EasingDirection.Out)function a
 'Missing argument #1 (Window expected)')local d,e,f,g,h,i,j,k,l=setmetatable({window=c,grip=c:Create('ImageButton',{Name
 ='ResizeGrip',Image=ah.icons.maximise,Size=UDim2.fromOffset(aj,aj),Position=UDim2.new(1,-al,1,-al),AnchorPoint=Vector2.
 new(1,1),BackgroundTransparency=1,ZIndex=ah.zIndex.resize,AutoButtonColor=false,ScaleType=Enum.ScaleType.Fit,Parent=c.
-elements})},ae),ag.userInputService,false,Vector2.zero,Vector2.zero,Vector2.zero,Vector2.zero,Vector2.zero,Vector2.zero
-if c.screenGui and c.screenGui.IgnoreGuiInset then l=ag.guiService:GetGuiInset()end local function m(n,o)ag.tweenService
-:Create(d.grip,o,{Size=UDim2.fromOffset(n,n)}):Play()end c:Connect(d.grip.MouseEnter,function()if not f then m(ak,am)end
+main})},ae),ag.userInputService,false,Vector2.zero,Vector2.zero,Vector2.zero,Vector2.zero,Vector2.zero,Vector2.zero if c
+.screenGui and c.screenGui.IgnoreGuiInset then l=ag.guiService:GetGuiInset()end local function m(n,o)ag.tweenService:
+Create(d.grip,o,{Size=UDim2.fromOffset(n,n)}):Play()end c:Connect(d.grip.MouseEnter,function()if not f then m(ak,am)end
 end)c:Connect(d.grip.MouseLeave,function()if not f then m(aj,b)end end)local function n()if not f then return end f=
 false local o=d.grip.AbsolutePosition local p,q=o+d.grip.AbsoluteSize,e:GetMouseLocation()local r=q.X>=o.X and q.X<=p.X
 and q.Y>=o.Y and q.Y<=p.Y m(if r then ak else aj,b)end c:Connect(d.grip.InputBegan,function(o,p)if p then return end if
@@ -2737,35 +2737,35 @@ math.min(math.clamp(c,am.minSize.Y,am.defaultSize.Y),c)e=math.floor(math.min(e,d
 floor(math.min(d,e*am.maxAspectRatio))return UDim2.fromOffset(d,e)end function af.fit(am:Vector2?,b:ae.Mode?):UDim2
 local c=af.profile(b)if not am or am.X<ag or am.Y<ag then return UDim2.fromOffset(c.defaultSize.X,c.defaultSize.Y)end
 local d,e=math.min(am.X*c.maxOccupancyX,am.X-c.marginFloorX),ai(c,am.Y)if c.minAspectRatio then return al(c,d,e)end
-return ak(c,d,e)end return af end)()end},{{1,2,{'Rayfield'},{{2,1,{'components'},{{10,2,{'drag'}},{4,2,{'button'}},{11,2
-,{'dropdown'}},{15,2,{'notification'}},{14,2,{'keybind'}},{5,2,{'chrome'}},{25,2,{'tabSection'}},{13,2,{'input'}},{16,2,
-{'popup'}},{6,2,{'colorpicker'}},{29,2,{'toast'}},{9,2,{'divider'}},{19,2,{'search'}},{23,2,{'stat'}},{30,2,{'toggle'}},
-{18,2,{'resize'}},{22,2,{'slider'}},{7,2,{'console'}},{27,2,{'tag'}},{17,2,{'progress'}},{26,2,{'tabSelector'}},{3,2,{
-'action'}},{31,2,{'window'}},{24,2,{'tab'}},{21,2,{'sidebar'}},{28,2,{'text'}},{20,2,{'section'}},{12,2,{'group'}},{8,2,
-{'descriptor'}}}},{32,1,{'themes'},{{33,2,{'amethyst'}},{37,2,{'frost'}},{35,2,{'default'}},{38,2,{'rose'}},{34,2,{
-'cobalt'}},{36,2,{'ember'}}}},{40,1,{'utility'},{{55,2,{'lockable'}},{66,2,{'persistenceWrite'}},{71,2,{'windowSizing'}}
-,{52,2,{'imageCache'}},{69,2,{'textMetrics'}},{51,2,{'image'}},{65,2,{'persistenceSettings'}},{42,2,{'assetResolver'}},{
-57,2,{'moveable'}},{70,2,{'variables'}},{63,2,{'persistenceConfig'}},{48,2,{'flagNames'}},{46,2,{'filesystem'}},{67,2,{
-'runtime'}},{43,2,{'colors'}},{64,2,{'persistencePaths'}},{58,2,{'network'}},{62,2,{'persistence'}},{61,2,{'path'}},{53,
-2,{'layouts'}},{60,2,{'ordering'}},{45,2,{'enums'}},{54,2,{'locale'}},{47,2,{'filesystemManager'}},{50,2,{'functions'}},
-{49,2,{'fontManager'}},{44,2,{'constants'}},{68,2,{'services'}},{41,2,{'HapticEngine'}},{59,2,{'odometer'}},{56,2,{'log'
-}}}},{39,2,{'types'}}}}},'0.4.1','Rayfield',string,task,setmetatable,error,next,table,unpack,coroutine,script,type,
-require,pcall,xpcall,tostring,tonumber,_VERSION local j,k,l,m,n,o,p=aj.insert,aj.remove,aj.freeze or function(j)return j
-end,al.wrap,ae.sub,ae.match,ae.gmatch if h and n(h,1,4)=='Lune'then local q,r=d(c,'@lune/task')if q and r then af=r end
-end local q=af and af.defer local r,s,t,u,v,w,x,y,z=q or function(r,...)m(r)(...)end,{[1]='Folder',[2]='ModuleScript',[3
-]='Script',[4]='LocalScript',[5]='StringValue'},{},{},{},{},{},{},{}local A,B={GetFullName={{},function(A)local B,C=A.
-Name,A.Parent while C do B=C.Name..'.'..B C=C.Parent end return B end},GetChildren={{},function(A)local B={}for C in ai,
-z[A]do j(B,C)end return B end},GetDescendants={{},function(A)local B={}for C in ai,z[A]do j(B,C)for D,E in ai,C:
-GetDescendants()do j(B,E)end end return B end},FindFirstChild={{'string','boolean?'},function(A,B,C)local D=z[A]for E in
-ai,D do if E.Name==B then return E end end if C then for E in ai,D do return E:FindFirstChild(B,true)end end end},
-FindFirstAncestor={{'string'},function(A,B)local C=A.Parent while C do if C.Name==B then return C end C=C.Parent end end
-},WaitForChild={{'string','number?'},function(A,B)return A:FindFirstChild(B)end}},{}for C,D in ai,A do local E,F,G=D[1],
-D[2],{}for H,I in ai,E do local J,K=o(I,'^([^%?]+)(%??)')G[H]={J,K}end B[C]=function(H,...)if not z[H]then ah(
-"Expected ':' not '.' calling member function "..C,2)end local I={...}for J,K in ai,G do local L=I[J]local M,N,O=b(L),K[
-1],K[2]if L==nil and not O then ah('Argument '..L..' missing or nil',3)end if N~='any'and M~=N and not(M=='nil'and O)
-then ah('Argument '..J..' expects type "'..N..'", got "'..M..'"',2)end end return F(H,...)end end local function C(D,E,F
-)local G,H=(ag({},{__mode='k'}))local function I(J)ah(J..' is not a valid (virtual) member of '..D..' "'..E..'"',3)end
-local function J(K)ah('Unable to assign (virtual) property '..K..'. Property is read only',3)end local K,L={},{}L.
+return ak(c,d,e)end return af end)()end},{{1,2,{'Rayfield'},{{32,1,{'themes'},{{34,2,{'cobalt'}},{36,2,{'ember'}},{37,2,
+{'frost'}},{38,2,{'rose'}},{35,2,{'default'}},{33,2,{'amethyst'}}}},{40,1,{'utility'},{{69,2,{'textMetrics'}},{50,2,{
+'functions'}},{58,2,{'network'}},{46,2,{'filesystem'}},{70,2,{'variables'}},{49,2,{'fontManager'}},{68,2,{'services'}},{
+53,2,{'layouts'}},{42,2,{'assetResolver'}},{47,2,{'filesystemManager'}},{43,2,{'colors'}},{62,2,{'persistence'}},{66,2,{
+'persistenceWrite'}},{71,2,{'windowSizing'}},{57,2,{'moveable'}},{56,2,{'log'}},{64,2,{'persistencePaths'}},{55,2,{
+'lockable'}},{52,2,{'imageCache'}},{67,2,{'runtime'}},{61,2,{'path'}},{44,2,{'constants'}},{41,2,{'HapticEngine'}},{54,2
+,{'locale'}},{59,2,{'odometer'}},{65,2,{'persistenceSettings'}},{63,2,{'persistenceConfig'}},{45,2,{'enums'}},{60,2,{
+'ordering'}},{51,2,{'image'}},{48,2,{'flagNames'}}}},{39,2,{'types'}},{2,1,{'components'},{{27,2,{'tag'}},{30,2,{
+'toggle'}},{7,2,{'console'}},{14,2,{'keybind'}},{16,2,{'popup'}},{8,2,{'descriptor'}},{15,2,{'notification'}},{31,2,{
+'window'}},{3,2,{'action'}},{29,2,{'toast'}},{5,2,{'chrome'}},{28,2,{'text'}},{18,2,{'resize'}},{26,2,{'tabSelector'}},{
+9,2,{'divider'}},{4,2,{'button'}},{20,2,{'section'}},{23,2,{'stat'}},{10,2,{'drag'}},{22,2,{'slider'}},{21,2,{'sidebar'}
+},{24,2,{'tab'}},{19,2,{'search'}},{17,2,{'progress'}},{25,2,{'tabSection'}},{13,2,{'input'}},{6,2,{'colorpicker'}},{12,
+2,{'group'}},{11,2,{'dropdown'}}}}}}},'0.4.1','Rayfield',string,task,setmetatable,error,next,table,unpack,coroutine,
+script,type,require,pcall,xpcall,tostring,tonumber,_VERSION local j,k,l,m,n,o,p=aj.insert,aj.remove,aj.freeze or
+function(j)return j end,al.wrap,ae.sub,ae.match,ae.gmatch if h and n(h,1,4)=='Lune'then local q,r=d(c,'@lune/task')if q
+and r then af=r end end local q=af and af.defer local r,s,t,u,v,w,x,y,z=q or function(r,...)m(r)(...)end,{[1]='Folder',[
+2]='ModuleScript',[3]='Script',[4]='LocalScript',[5]='StringValue'},{},{},{},{},{},{},{}local A,B={GetFullName={{},
+function(A)local B,C=A.Name,A.Parent while C do B=C.Name..'.'..B C=C.Parent end return B end},GetChildren={{},function(A
+)local B={}for C in ai,z[A]do j(B,C)end return B end},GetDescendants={{},function(A)local B={}for C in ai,z[A]do j(B,C)
+for D,E in ai,C:GetDescendants()do j(B,E)end end return B end},FindFirstChild={{'string','boolean?'},function(A,B,C)
+local D=z[A]for E in ai,D do if E.Name==B then return E end end if C then for E in ai,D do return E:FindFirstChild(B,
+true)end end end},FindFirstAncestor={{'string'},function(A,B)local C=A.Parent while C do if C.Name==B then return C end
+C=C.Parent end end},WaitForChild={{'string','number?'},function(A,B)return A:FindFirstChild(B)end}},{}for C,D in ai,A do
+local E,F,G=D[1],D[2],{}for H,I in ai,E do local J,K=o(I,'^([^%?]+)(%??)')G[H]={J,K}end B[C]=function(H,...)if not z[H]
+then ah("Expected ':' not '.' calling member function "..C,2)end local I={...}for J,K in ai,G do local L=I[J]local M,N,O
+=b(L),K[1],K[2]if L==nil and not O then ah('Argument '..L..' missing or nil',3)end if N~='any'and M~=N and not(M=='nil'
+and O)then ah('Argument '..J..' expects type "'..N..'", got "'..M..'"',2)end end return F(H,...)end end local function C
+(D,E,F)local G,H=(ag({},{__mode='k'}))local function I(J)ah(J..' is not a valid (virtual) member of '..D..' "'..E..'"',3
+)end local function J(K)ah('Unable to assign (virtual) property '..K..'. Property is read only',3)end local K,L={},{}L.
 __metatable=false L.__index=function(M,N)if N=='ClassName'then return D elseif N=='Name'then return E elseif N=='Parent'
 then return F elseif D=='StringValue'and N=='Value'then return H else local O=B[N]if O then return O end end for O in ai
 ,G do if O.Name==N then return O end end I(N)end L.__newindex=function(M,N,O)if N=='ClassName'then J(N)elseif N=='Name'
