@@ -557,7 +557,7 @@ function()aa:_applyFilter(aa.searchInput.Text)end)aa.window:ConnectFor(aa,aa.sea
 searchInput.Text==''then aa:_collapseSearch()end end)end function f._expandSearch(aa)if aa._searchOpen then return end
 aa._searchOpen=true aa.searchInput.TextEditable=true aa.searchInput.Interactable=true h.tweenService:Create(aa.searchbar
 ,K,{Size=UDim2.new(1,-12,0,w),BackgroundTransparency=0.92}):Play()h.tweenService:Create(aa.searchStroke,K,{Transparency=
-0.86}):Play()h.tweenService:Create(aa.searchShadow,K,{Transparency=0.92}):Play()h.tweenService:Create(aa.searchInput,K,{
+1}):Play()h.tweenService:Create(aa.searchShadow,K,{Transparency=0.92}):Play()h.tweenService:Create(aa.searchInput,K,{
 TextTransparency=0.3}):Play()aa:_resizeToOptions()aa.searchInput:CaptureFocus()end function f._collapseSearch(aa)if not
 aa._searchOpen then return end aa._searchOpen=false aa.searchInput.TextEditable=false aa.searchInput.Interactable=false
 aa.searchInput:ReleaseFocus()aa.searchInput.Text=''h.tweenService:Create(aa.searchbar,K,{Size=UDim2.new(1,-12,0,v),
@@ -725,7 +725,7 @@ Text=i.value end return end j=tostring(l)end local l=j~=i.value i.value=j if i.i
 not k then i.window:_runGuarded(i,i.callback,j)i.window:_persist(i)if l and not i.window._loading then e.click()i.window
 :_flashResult(i,true)end end end function ae.Set(i,j,k)i:_commit(j,k)end function ae._setShown(i,j,k)local l=i.window if
 j then l:_revealCommon(i,k)l:_reveal(i.box,{BackgroundTransparency=l.theme.FieldTransparency},k)l:_reveal(i.boxStroke,{
-Transparency=0.85},k)l:_reveal(i.input,{TextTransparency=0.6},k)else l:_hideCommon(i,k)l:_reveal(i.box,{
+Transparency=1},k)l:_reveal(i.input,{TextTransparency=0.6},k)else l:_hideCommon(i,k)l:_reveal(i.box,{
 BackgroundTransparency=1},k)l:_reveal(i.boxStroke,{Transparency=1},k)l:_reveal(i.input,{TextTransparency=1},k)end end
 function ae._refreshTheme(i)ag.tweenService:Create(i.box,TweenInfo.new(0.5,Enum.EasingStyle.Quint,Enum.EasingDirection.
 Out),{BackgroundTransparency=i.window.theme.FieldTransparency}):Play()end ai(ae)b(ae)return ae end)()end,[14]=function()
@@ -798,15 +798,15 @@ _runGuarded(m,m.onChanged,m.value)m.window:_persist(m)end end function ae._seria
 ,m.value.Value}end function ae._deserialize(m,n)local o=tostring(n[1]):gsub('^Enum%.','')local p,q=pcall(function()
 return Enum[o]end)if not p or not q then return end local r=f.itemFromValue(q,n[2])if r then m:Set(r)end end function ae
 ._setShown(m,n,o)local p=m.window if n then p:_revealCommon(m,o)p:_reveal(m.box,{BackgroundTransparency=p.theme.
-FieldTransparency},o)p:_reveal(m.boxStroke,{Transparency=0.85},o)p:_reveal(m.keyLabel,{TextTransparency=0.6},o)p:
-_reveal(m.glow,{Transparency=0.9},o)else p:_hideCommon(m,o)p:_reveal(m.box,{BackgroundTransparency=1},o)p:_reveal(m.
-boxStroke,{Transparency=1},o)p:_reveal(m.keyLabel,{TextTransparency=1},o)p:_reveal(m.glow,{Transparency=1},o)end end
-function ae._refreshTheme(m)ag.tweenService:Create(m.box,TweenInfo.new(0.5,Enum.EasingStyle.Quint,Enum.EasingDirection.
-Out),{BackgroundTransparency=m.window.theme.FieldTransparency}):Play()end ai(ae)b(ae)return ae end)()end,[15]=function()
-local aa,ab,ac=a(15)local ad return(function(...)local ae={}ae.__index=ae ae.__type='Notification'local af=ab.Parent.
-Parent.utility local ag,ah,ai,b,c,d,e,f,g,h,i,j,k=ac(af.variables),ac(af.functions),ac(af.constants),ac(af.HapticEngine)
-,TweenInfo.new(0.6,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out),TweenInfo.new(0.4,Enum.EasingStyle.Exponential
-,Enum.EasingDirection.Out),TweenInfo.new(0.3,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out),TweenInfo.new(0.6,
+FieldTransparency},o)p:_reveal(m.boxStroke,{Transparency=1},o)p:_reveal(m.keyLabel,{TextTransparency=0.6},o)p:_reveal(m.
+glow,{Transparency=0.9},o)else p:_hideCommon(m,o)p:_reveal(m.box,{BackgroundTransparency=1},o)p:_reveal(m.boxStroke,{
+Transparency=1},o)p:_reveal(m.keyLabel,{TextTransparency=1},o)p:_reveal(m.glow,{Transparency=1},o)end end function ae.
+_refreshTheme(m)ag.tweenService:Create(m.box,TweenInfo.new(0.5,Enum.EasingStyle.Quint,Enum.EasingDirection.Out),{
+BackgroundTransparency=m.window.theme.FieldTransparency}):Play()end ai(ae)b(ae)return ae end)()end,[15]=function()local
+aa,ab,ac=a(15)local ad return(function(...)local ae={}ae.__index=ae ae.__type='Notification'local af=ab.Parent.Parent.
+utility local ag,ah,ai,b,c,d,e,f,g,h,i,j,k=ac(af.variables),ac(af.functions),ac(af.constants),ac(af.HapticEngine),
+TweenInfo.new(0.6,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out),TweenInfo.new(0.4,Enum.EasingStyle.Exponential,
+Enum.EasingDirection.Out),TweenInfo.new(0.3,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out),TweenInfo.new(0.6,
 Enum.EasingStyle.Exponential,Enum.EasingDirection.Out),TweenInfo.new(0.9,Enum.EasingStyle.Exponential,Enum.
 EasingDirection.Out),UDim2.new(0.5,360,0.5,0),UDim2.new(0.5,0,0.5,0),6,8 local function l(m)return math.clamp(#m*0.06+3,
 3,9)end function ae.new(m,n)n=if typeof(n)=='table'then n else{}local o=setmetatable({window=assert(m,
@@ -845,7 +845,7 @@ TitleFont,16,m.title,n)if m.descriptionLabel then o=o+4+ah.textHeight(m.window.t
 .max(o,m.iconLabel and 24 or 0)+28 end function ae._show(m)local n=m:_measure()+k if m._dismissed or not m.main.Parent
 then return end b.notify()ag.tweenService:Create(m.main,c,{Size=UDim2.new(1,0,0,n)}):Play()ag.tweenService:Create(m.body
 ,f,{Position=i}):Play()ag.tweenService:Create(m.body,d,{BackgroundTransparency=0}):Play()ag.tweenService:Create(m.
-titleLabel,e,{TextTransparency=0}):Play()ag.tweenService:Create(m.stroke,d,{Transparency=0.95}):Play()ag.tweenService:
+titleLabel,e,{TextTransparency=0}):Play()ag.tweenService:Create(m.stroke,d,{Transparency=1}):Play()ag.tweenService:
 Create(m.shadow,e,{Transparency=0.6}):Play()task.wait(0.05)if m._dismissed or not m.main.Parent then return end if m.
 iconLabel then ag.tweenService:Create(m.iconLabel,e,{ImageTransparency=0}):Play()end task.wait(0.05)if m._dismissed or
 not m.main.Parent then return end if m.descriptionLabel then ag.tweenService:Create(m.descriptionLabel,e,{
@@ -1073,28 +1073,28 @@ local function e(f)for g,h in f.elements do if h.__type=='Group'then e(h)elseif 
 end end e(c)return table.concat(d,'\n')end return c.name or''end local function c(d)local e={}for f,g in d.tabs do if g.
 neglectSelector then continue end for h,i in g.elements do if i.__type~='Section'then table.insert(e,i)end end end
 return e end local function d(e,f,g)af.tweenService:Create(e.searchPill,g,{BackgroundTransparency=if f then 0.9 else 1})
-:Play()af.tweenService:Create(e.searchStroke,g,{Transparency=if f then 0.85 else 1}):Play()af.tweenService:Create(e.
-searchShadow,g,{Transparency=if f then 0.92 else 1}):Play()af.tweenService:Create(e.searchIcon,g,{ImageTransparency=if f
-then 0.65 else 1}):Play()af.tweenService:Create(e.searchInput,g,{TextTransparency=if f then 0.2 else 1}):Play()end
-local function e(f,g,h)if f.layout.mode=='sidebar'then return end for i,j in f.tabs do if not j.neglectSelector and j.
-topbarItem then j:_applyVisual(if g then(if f.selectedTab==j then'selected'else'unselected')else'hidden',h)end end end
-local function f(g,h)h=string.lower(h or'')local i=false for j,k in g._searchUnits do local l=h==''or string.find(k.text
-,h,1,true)~=nil k.unit.main.Visible=l if k.unit.descriptor then k.unit.descriptor.main.Visible=l end i=i or l end g.
-searchEmpty.Visible=not i and h~=''end local function g(h)h._searchUnits={}local i=0 for j,k in c(h)do i+=1 local l=k.
-main table.insert(h._searchUnits,{unit=k,text=string.lower(b(k)),homeParent=l.Parent,homeOrder=l.LayoutOrder,descOrder=k
-.descriptor and k.descriptor.main.LayoutOrder})l.LayoutOrder=i*10 l.Parent=h.searchPage l.Visible=true if k.descriptor
-then k.descriptor.main.LayoutOrder=i*10+1 k.descriptor.main.Parent=h.searchPage k.descriptor.main.Visible=true end end
-end local function h(i)for j,k in i._searchUnits do local l=k.unit if l.main and l.main.Parent then l.main.LayoutOrder=k
-.homeOrder l.main.Parent=k.homeParent l.main.Visible=true end if l.descriptor and l.descriptor.main and l.descriptor.
-main.Parent then l.descriptor.main.LayoutOrder=k.descOrder l.descriptor.main.Parent=k.homeParent l.descriptor.main.
-Visible=true end end i._searchUnits={}end function aj.open(i)if i._searching or i.minimised or not i:_interactive()then
-return end i._searching=true g(i)f(i,'')i:_jumpTo(i.searchPage)e(i,false,ak)task.delay(ak.Time,function()if i._searching
-and i.layout.mode~='sidebar'then i.tabList.Visible=false end end)i.searchPill.Visible=true d(i,true,ak)i.searchInput:
-CaptureFocus()af.tweenService:Create(i.searchAction.iconLabel,ak,{ImageTransparency=am}):Play()end function aj.close(i,j
-)if not i._searching then return end j=j or{}i._searching=false i.searchInput.Text=''i.searchInput:ReleaseFocus()i.
-searchEmpty.Visible=false h(i)local k=if j.jumpTo==nil then i.selectedTab and i.selectedTab.tabPage else j.jumpTo if k
-then i:_jumpTo(k)end d(i,false,ak)task.delay(ak.Time,function()if not i._searching then i.searchPill.Visible=false end
-end)if j.showTabs then i.tabList.Visible=true e(i,true,ak)end af.tweenService:Create(i.searchAction.iconLabel,ak,{
+:Play()af.tweenService:Create(e.searchStroke,g,{Transparency=1}):Play()af.tweenService:Create(e.searchShadow,g,{
+Transparency=if f then 0.92 else 1}):Play()af.tweenService:Create(e.searchIcon,g,{ImageTransparency=if f then 0.65 else
+1}):Play()af.tweenService:Create(e.searchInput,g,{TextTransparency=if f then 0.2 else 1}):Play()end local function e(f,g
+,h)if f.layout.mode=='sidebar'then return end for i,j in f.tabs do if not j.neglectSelector and j.topbarItem then j:
+_applyVisual(if g then(if f.selectedTab==j then'selected'else'unselected')else'hidden',h)end end end local function f(g,
+h)h=string.lower(h or'')local i=false for j,k in g._searchUnits do local l=h==''or string.find(k.text,h,1,true)~=nil k.
+unit.main.Visible=l if k.unit.descriptor then k.unit.descriptor.main.Visible=l end i=i or l end g.searchEmpty.Visible=
+not i and h~=''end local function g(h)h._searchUnits={}local i=0 for j,k in c(h)do i+=1 local l=k.main table.insert(h.
+_searchUnits,{unit=k,text=string.lower(b(k)),homeParent=l.Parent,homeOrder=l.LayoutOrder,descOrder=k.descriptor and k.
+descriptor.main.LayoutOrder})l.LayoutOrder=i*10 l.Parent=h.searchPage l.Visible=true if k.descriptor then k.descriptor.
+main.LayoutOrder=i*10+1 k.descriptor.main.Parent=h.searchPage k.descriptor.main.Visible=true end end end local function
+h(i)for j,k in i._searchUnits do local l=k.unit if l.main and l.main.Parent then l.main.LayoutOrder=k.homeOrder l.main.
+Parent=k.homeParent l.main.Visible=true end if l.descriptor and l.descriptor.main and l.descriptor.main.Parent then l.
+descriptor.main.LayoutOrder=k.descOrder l.descriptor.main.Parent=k.homeParent l.descriptor.main.Visible=true end end i.
+_searchUnits={}end function aj.open(i)if i._searching or i.minimised or not i:_interactive()then return end i._searching
+=true g(i)f(i,'')i:_jumpTo(i.searchPage)e(i,false,ak)task.delay(ak.Time,function()if i._searching and i.layout.mode~=
+'sidebar'then i.tabList.Visible=false end end)i.searchPill.Visible=true d(i,true,ak)i.searchInput:CaptureFocus()af.
+tweenService:Create(i.searchAction.iconLabel,ak,{ImageTransparency=am}):Play()end function aj.close(i,j)if not i.
+_searching then return end j=j or{}i._searching=false i.searchInput.Text=''i.searchInput:ReleaseFocus()i.searchEmpty.
+Visible=false h(i)local k=if j.jumpTo==nil then i.selectedTab and i.selectedTab.tabPage else j.jumpTo if k then i:
+_jumpTo(k)end d(i,false,ak)task.delay(ak.Time,function()if not i._searching then i.searchPill.Visible=false end end)if j
+.showTabs then i.tabList.Visible=true e(i,true,ak)end af.tweenService:Create(i.searchAction.iconLabel,ak,{
 ImageTransparency=al}):Play()end function aj.toggle(i)if i._searching then aj.close(i,{showTabs=true})else aj.open(i)end
 end function aj.railWidth(i,j)if i.searchPill then i.searchPill.Size=UDim2.new(1,-(j+30),0,35)end end function aj.build(
 i)i._searching=false i.searchPage=i:Create('ScrollingFrame',{Name='Search',Size=UDim2.new(1,-20,1,0),Position=UDim2.new(
@@ -1268,41 +1268,41 @@ _format(p))end m._lastValue=p m:_renderProgress(f)m:_fireCallback(p)end end func
 then return end m.dragging=false m:_setHeld(false)if m._dragConnection then m._dragConnection:Disconnect()m.
 _dragConnection=nil end m.window:_persist(m)end function ae._setHeld(m,n)if not n then m:_fireCallback(m.value)end local
 o=if n then i else h m._handleWidth=o.X ag.tweenService:Create(m.handle,e,{Size=UDim2.fromOffset(o.X,o.Y),
-BackgroundTransparency=if n then 0.7 else 0}):Play()ag.tweenService:Create(m.handleStroke,e,{Transparency=if n then 0.6
-else 1}):Play()m:_renderProgress(e)end function ae._fireCallback(m,n)m.window:_runGuarded(m,m.callback,n,m.dragging==
-true)end function ae.Set(m,n,o)n=c(m.range,m.increment,n)m.value=n if m.valueOdo then m.valueOdo:to(m:_format(n),n>=(m.
-_lastValue or n))end m._lastValue=n m:_renderProgress(d)if not o then m:_fireCallback(n)m.window:_persist(m)end end
-local m=TweenInfo.new(0.4,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out,0,false,0.35)function ae._setShown(n,o,p
-)local q=n.window if o then q:_revealCommon(n,p)q:_reveal(n.track,{BackgroundTransparency=0},p)q:_reveal(n.progress,{
-BackgroundTransparency=0},p)q:_reveal(n.handle,{BackgroundTransparency=0},p)if n.valueOdo then n.valueOdo:reveal(0.3,p)
-end q:_reveal(n.progressGlow,{Transparency=math.max(0.55,q.theme.AccentGlow)},p,m)q:_reveal(n.handleGlow,{Transparency=
-0.8},p,m)else q:_hideCommon(n,p)q:_reveal(n.track,{BackgroundTransparency=1},p)q:_reveal(n.progress,{
-BackgroundTransparency=1},p)q:_reveal(n.handle,{BackgroundTransparency=1},p)if n.valueOdo then n.valueOdo:reveal(1,p)end
-q:_reveal(n.progressGlow,{Transparency=1},p,m)q:_reveal(n.handleGlow,{Transparency=1},p,m)end end function ae.
-_refreshTheme(n)ag.tweenService:Create(n.progressGlow,TweenInfo.new(0.5,Enum.EasingStyle.Quint,Enum.EasingDirection.Out)
-,{Transparency=math.max(0.55,n.window.theme.AccentGlow)}):Play()end function ae._minWidth(n)if n.minimal then return 100
-end local o=40 if n.icon then o+=22 end o+=ah.textWidth(n.window.theme.Font,16,al.resolve(n.name))o+=12 o+=ah.textWidth(
-n.window.theme.Font,15,n:_format(n.value))return math.max(o,160)end aj(ae)ak(ae)return ae end)()end,[23]=function()local
-aa,ab,ac=a(23)local ad return(function(...)local ae={}ae.__index=ae ae.__type='Statistic'local af=ab.Parent.Parent.
-utility local ag,ah,ai,aj,ak,al,am=ac(af.variables),ac(af.functions),ac(af.odometer),ac(af.moveable),ac(af.constants),
-ac(af.locale),ac(af.log)local b,c,d,e=ak.statAccents,NumberSequence.new{NumberSequenceKeypoint.new(0,0.85),
-NumberSequenceKeypoint.new(1,0)},41,TweenInfo.new(0.6,Enum.EasingStyle.Exponential)local function f(g)return g.fill.
-Keypoints[1].Value end local function g(h)if h>0 then return string.format('+%.1f%%',h)elseif h<0 then return string.
-format('%.1f%%',h)else return'0%'end end local function h(i)if typeof(i)~='number'then return tostring(i)end local j=
-math.round(math.abs(i))local k=string.format('%.0f',j)local l=k:reverse():gsub('%d%d%d','%0,'):reverse()if l:sub(1,1)==
-','then l=l:sub(2)end return if i<0 and j~=0 then'-'..l else l end local function i(j)local k=math.round(j)if k>0 then
-return'+'..h(k)elseif k<0 then return h(k)else return'0'end end function ae.new(j,k)k=if typeof(k)=='table'then k else{}
-local l=setmetatable({tab=assert(j,'Missing argument #1 (Tab expected)'),window=j.window,name=k.name or k.Name or
-'Statistic',icon=k.icon or k.Icon,description=k.description or k.Description,value=if(k.value or k.Value)~=nil then(k.
-value or k.Value)else 0,_hasValue=(k.value or k.Value)~=nil,numberEasing=if(k.numberEasing~=nil)then k.numberEasing
-elseif k.NumberEasing~=nil then k.NumberEasing else true,changeMode=k.changeMode or k.ChangeMode or'percentage',
-changeBaseline=k.changeBaseline or k.ChangeBaseline or'previous',prefix=k.prefix or k.Prefix or'',suffix=k.suffix or k.
-Suffix or'',compact=k.compact or k.Compact or j.compact or false,display=(k.display or k.Display or'value'),
-_initialValue=if(k.value or k.Value)~=nil then(k.value or k.Value)else nil,_lastChange=0},ae)if l.compact then l:
-_buildCompact()else l:_buildFull()end if l.description then if l.compact then am.warn(`Rayfield: a compact stat has no room for a description, ignoring it on '{
-l.name}'.`)else l.descriptor=ac(ab.Parent.descriptor).new(l.tab,{description=l.description})end end return l end
-function ae._buildFull(j)local k=j.window j.main=k:Create('Frame',{Size=UDim2.new(1,-20,0,90),BorderSizePixel=0,Name=j.
-name,ZIndex=5,BackgroundTransparency=1,Parent=j.tab.tabPage},{BackgroundColor3='StatBackground',BackgroundTransparency=
+BackgroundTransparency=if n then 0.7 else 0}):Play()ag.tweenService:Create(m.handleStroke,e,{Transparency=1}):Play()m:
+_renderProgress(e)end function ae._fireCallback(m,n)m.window:_runGuarded(m,m.callback,n,m.dragging==true)end function ae
+.Set(m,n,o)n=c(m.range,m.increment,n)m.value=n if m.valueOdo then m.valueOdo:to(m:_format(n),n>=(m._lastValue or n))end
+m._lastValue=n m:_renderProgress(d)if not o then m:_fireCallback(n)m.window:_persist(m)end end local m=TweenInfo.new(0.4
+,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out,0,false,0.35)function ae._setShown(n,o,p)local q=n.window if o
+then q:_revealCommon(n,p)q:_reveal(n.track,{BackgroundTransparency=0},p)q:_reveal(n.progress,{BackgroundTransparency=0},
+p)q:_reveal(n.handle,{BackgroundTransparency=0},p)if n.valueOdo then n.valueOdo:reveal(0.3,p)end q:_reveal(n.
+progressGlow,{Transparency=math.max(0.55,q.theme.AccentGlow)},p,m)q:_reveal(n.handleGlow,{Transparency=0.8},p,m)else q:
+_hideCommon(n,p)q:_reveal(n.track,{BackgroundTransparency=1},p)q:_reveal(n.progress,{BackgroundTransparency=1},p)q:
+_reveal(n.handle,{BackgroundTransparency=1},p)if n.valueOdo then n.valueOdo:reveal(1,p)end q:_reveal(n.progressGlow,{
+Transparency=1},p,m)q:_reveal(n.handleGlow,{Transparency=1},p,m)end end function ae._refreshTheme(n)ag.tweenService:
+Create(n.progressGlow,TweenInfo.new(0.5,Enum.EasingStyle.Quint,Enum.EasingDirection.Out),{Transparency=math.max(0.55,n.
+window.theme.AccentGlow)}):Play()end function ae._minWidth(n)if n.minimal then return 100 end local o=40 if n.icon then
+o+=22 end o+=ah.textWidth(n.window.theme.Font,16,al.resolve(n.name))o+=12 o+=ah.textWidth(n.window.theme.Font,15,n:
+_format(n.value))return math.max(o,160)end aj(ae)ak(ae)return ae end)()end,[23]=function()local aa,ab,ac=a(23)local ad
+return(function(...)local ae={}ae.__index=ae ae.__type='Statistic'local af=ab.Parent.Parent.utility local ag,ah,ai,aj,ak
+,al,am=ac(af.variables),ac(af.functions),ac(af.odometer),ac(af.moveable),ac(af.constants),ac(af.locale),ac(af.log)local
+b,c,d,e=ak.statAccents,NumberSequence.new{NumberSequenceKeypoint.new(0,0.85),NumberSequenceKeypoint.new(1,0)},41,
+TweenInfo.new(0.6,Enum.EasingStyle.Exponential)local function f(g)return g.fill.Keypoints[1].Value end local function g(
+h)if h>0 then return string.format('+%.1f%%',h)elseif h<0 then return string.format('%.1f%%',h)else return'0%'end end
+local function h(i)if typeof(i)~='number'then return tostring(i)end local j=math.round(math.abs(i))local k=string.
+format('%.0f',j)local l=k:reverse():gsub('%d%d%d','%0,'):reverse()if l:sub(1,1)==','then l=l:sub(2)end return if i<0 and
+j~=0 then'-'..l else l end local function i(j)local k=math.round(j)if k>0 then return'+'..h(k)elseif k<0 then return h(k
+)else return'0'end end function ae.new(j,k)k=if typeof(k)=='table'then k else{}local l=setmetatable({tab=assert(j,
+'Missing argument #1 (Tab expected)'),window=j.window,name=k.name or k.Name or'Statistic',icon=k.icon or k.Icon,
+description=k.description or k.Description,value=if(k.value or k.Value)~=nil then(k.value or k.Value)else 0,_hasValue=(k
+.value or k.Value)~=nil,numberEasing=if(k.numberEasing~=nil)then k.numberEasing elseif k.NumberEasing~=nil then k.
+NumberEasing else true,changeMode=k.changeMode or k.ChangeMode or'percentage',changeBaseline=k.changeBaseline or k.
+ChangeBaseline or'previous',prefix=k.prefix or k.Prefix or'',suffix=k.suffix or k.Suffix or'',compact=k.compact or k.
+Compact or j.compact or false,display=(k.display or k.Display or'value'),_initialValue=if(k.value or k.Value)~=nil then(
+k.value or k.Value)else nil,_lastChange=0},ae)if l.compact then l:_buildCompact()else l:_buildFull()end if l.description
+then if l.compact then am.warn(`Rayfield: a compact stat has no room for a description, ignoring it on '{l.name}'.`)else
+l.descriptor=ac(ab.Parent.descriptor).new(l.tab,{description=l.description})end end return l end function ae._buildFull(
+j)local k=j.window j.main=k:Create('Frame',{Size=UDim2.new(1,-20,0,90),BorderSizePixel=0,Name=j.name,ZIndex=5,
+BackgroundTransparency=1,Parent=j.tab.tabPage},{BackgroundColor3='StatBackground',BackgroundTransparency=
 'ElementTransparency'})k:Create('UICorner',{Parent=j.main},{CornerRadius='ElementCornerRadius'})j.stroke=k:Create(
 'UIStroke',{Transparency=1,Color=Color3.fromRGB(255,255,255),Parent=j.main},{Transparency='ElementStrokeTransparency'})j
 .strokeGradient=k:Create('UIGradient',{Rotation=2,Offset=Vector2.new(0,0.5),Color=b.neutral.stroke,Transparency=c,Parent
@@ -1460,10 +1460,10 @@ then table.remove(al.window.tabSections,am)end al.window:DestroySubtree(al.main)
 =function()local aa,ab,ac=a(26)local ad return(function(...)local ae=ab.Parent.Parent.utility local af,ag,ah,ai=ac(ae.
 variables),ac(ae.functions),ac(ae.locale),{}local function aj(ak:string?):string if type(ak)~='string'or ak==''then
 return'?'end local al=utf8.offset(ak,2)local am=if al then string.sub(ak,1,al-1)else ak return string.upper(am)end ai.
-states={top={selected={background=0,stroke=0,content=0},hover={background=0.4,stroke=0.3,content=0.3},unselected={
-background=0.8,stroke=0.65,content=0.5},hidden={background=1,stroke=1,content=1}},sidebar={selected={background=0.4,
-stroke=0.5,content=0,shadow=0.8},hover={background=0.7,stroke=0.8,content=0.3,shadow=1},unselected={background=1,stroke=
-1,content=0.5,shadow=1},hidden={background=1,stroke=1,content=1,shadow=1}}}local function ak(al,am,b)al.
+states={top={selected={background=0,stroke=0.7,content=0},hover={background=0.4,stroke=0.75,content=0.3},unselected={
+background=0.8,stroke=0.85,content=0.5},hidden={background=1,stroke=1,content=1}},sidebar={selected={background=0.4,
+stroke=0.8,content=0,shadow=0.8},hover={background=0.7,stroke=0.85,content=0.3,shadow=1},unselected={background=1,stroke
+=1,content=0.5,shadow=1},hidden={background=1,stroke=1,content=1,shadow=1}}}local function ak(al,am,b)al.
 topbarItemGradient=al.window:Create('UIGradient',{Rotation=90,Parent=am},{Color={'TabBackground',ag.toColorSequence}})al
 .topbarItemStrokeGradient=al.window:Create('UIGradient',{Rotation=90,Parent=b},{Color={'TabStroke',ag.toColorSequence}})
 end local function al(am,b,c)if c and not am.icon then am.topbarItemInitial=am.window:Create('TextLabel',{Text=aj(am.
@@ -1616,7 +1616,7 @@ C.Size=UDim2.fromOffset(A,C.Size.Y.Offset)end end end local A=if u.subtitleLabel
 .iconLabel then u._iconSize else 0)+18 return z,B end function ae._show(u)if not u.main.Parent then return end ak.
 notify()local v,w=u:_measure()if u._dismissed or not u.main.Parent then return end u.main.Size=UDim2.new(0,v,0,0)ag.
 tweenService:Create(u.main,am,{Size=UDim2.new(0,v,0,w+l)}):Play()ag.tweenService:Create(u.body,al,{Position=r}):Play()ag
-.tweenService:Create(u.body,b,{BackgroundTransparency=0}):Play()ag.tweenService:Create(u.stroke,b,{Transparency=0.9}):
+.tweenService:Create(u.body,b,{BackgroundTransparency=0}):Play()ag.tweenService:Create(u.stroke,b,{Transparency=1}):
 Play()ag.tweenService:Create(u.shadow,c,{Transparency=0.6}):Play()ag.tweenService:Create(u.titleLabel,c,{
 TextTransparency=0}):Play()task.wait(0.05)if u._dismissed or not u.main.Parent then return end if u.iconLabel then ag.
 tweenService:Create(u.iconLabel,c,{BackgroundTransparency=0.95}):Play()ag.tweenService:Create(u.iconLabel,c,{
@@ -2120,45 +2120,39 @@ _liveTween then I._liveTween:Cancel()I._liveTween=nil end for J=#I.connections,1
 for J=#I.instances,1,-1 do I.instances[J]:Destroy()end table.clear(I.connections)table.clear(I.instances)table.clear(I.
 themeProperties)table.clear(I.localeProperties)table.clear(I.controls)table.clear(I.tabs)end return h end)()end,[33]=
 function()local aa,ab,ac=a(33)local ad return(function(...)return{WindowColor=ColorSequence.new{ColorSequenceKeypoint.
-new(0,Color3.fromRGB(22,16,32)),ColorSequenceKeypoint.new(0.9999,Color3.fromRGB(30,22,46)),ColorSequenceKeypoint.new(1,
+new(0,Color3.fromRGB(30,22,46)),ColorSequenceKeypoint.new(0.9999,Color3.fromRGB(30,22,46)),ColorSequenceKeypoint.new(1,
 Color3.fromRGB(38,28,56))},ShadowColor=Color3.fromRGB(12,6,22),ElementStroke=Color3.fromRGB(54,42,74),ElementGradient=
-ColorSequence.new{ColorSequenceKeypoint.new(0,Color3.fromRGB(32,24,48)),ColorSequenceKeypoint.new(0.9999,Color3.fromRGB(
-36,28,54)),ColorSequenceKeypoint.new(1,Color3.fromRGB(36,28,54))},ElementStrokeGradient=ColorSequence.new{
-ColorSequenceKeypoint.new(0,Color3.fromRGB(72,58,104)),ColorSequenceKeypoint.new(0.9999,Color3.fromRGB(88,72,124)),
-ColorSequenceKeypoint.new(1,Color3.fromRGB(72,58,104))},ElementStrokeHover=Color3.fromRGB(84,68,118),TabBackground=
-ColorSequence.new(Color3.fromRGB(54,42,80),Color3.fromRGB(34,26,52)),TabStroke=ColorSequence.new(Color3.fromRGB(88,70,
-128),Color3.fromRGB(54,42,80)),SliderBackground=Color3.fromRGB(46,36,68),SliderBackgroundHover=Color3.fromRGB(60,48,90),
-SliderProgress=ColorSequence.new(Color3.fromRGB(170,112,248),Color3.fromRGB(138,80,224)),AccentColor=Color3.fromRGB(168,
-110,246),AccentStroke=Color3.fromRGB(200,154,255),ToggleKnobOff=Color3.fromRGB(224,214,236),StatBackground=Color3.
+ColorSequence.new(Color3.fromRGB(34,26,51),Color3.fromRGB(34,26,51)),ElementStrokeGradient=ColorSequence.new(Color3.
+fromRGB(80,65,114),Color3.fromRGB(80,65,114)),ElementStrokeHover=Color3.fromRGB(84,68,118),TabBackground=ColorSequence.
+new(Color3.fromRGB(44,34,66),Color3.fromRGB(44,34,66)),TabStroke=ColorSequence.new(Color3.fromRGB(71,56,104),Color3.
+fromRGB(71,56,104)),SliderBackground=Color3.fromRGB(46,36,68),SliderBackgroundHover=Color3.fromRGB(60,48,90),
+SliderProgress=ColorSequence.new(Color3.fromRGB(168,110,246),Color3.fromRGB(168,110,246)),AccentColor=Color3.fromRGB(168
+,110,246),AccentStroke=Color3.fromRGB(200,154,255),ToggleKnobOff=Color3.fromRGB(224,214,236),StatBackground=Color3.
 fromRGB(24,18,38),DropdownHighlight=Color3.fromRGB(168,110,246),NeutralButton=Color3.fromRGB(46,36,68),
 NeutralButtonHover=Color3.fromRGB(60,48,90),NeutralButtonStroke=Color3.fromRGB(140,116,190)}end)()end,[34]=function()
 local aa,ab,ac=a(34)local ad return(function(...)return{WindowColor=ColorSequence.new{ColorSequenceKeypoint.new(0,Color3
-.fromRGB(12,16,34)),ColorSequenceKeypoint.new(0.9999,Color3.fromRGB(20,26,50)),ColorSequenceKeypoint.new(1,Color3.
+.fromRGB(20,26,50)),ColorSequenceKeypoint.new(0.9999,Color3.fromRGB(20,26,50)),ColorSequenceKeypoint.new(1,Color3.
 fromRGB(28,36,66))},ShadowColor=Color3.fromRGB(6,8,20),ElementStroke=Color3.fromRGB(44,52,82),ElementGradient=
-ColorSequence.new{ColorSequenceKeypoint.new(0,Color3.fromRGB(26,32,58)),ColorSequenceKeypoint.new(0.9999,Color3.fromRGB(
-30,38,66)),ColorSequenceKeypoint.new(1,Color3.fromRGB(30,38,66))},ElementStrokeGradient=ColorSequence.new{
-ColorSequenceKeypoint.new(0,Color3.fromRGB(56,66,104)),ColorSequenceKeypoint.new(0.9999,Color3.fromRGB(70,82,124)),
-ColorSequenceKeypoint.new(1,Color3.fromRGB(56,66,104))},ElementStrokeHover=Color3.fromRGB(64,76,116),TabBackground=
-ColorSequence.new(Color3.fromRGB(48,58,92),Color3.fromRGB(30,38,64)),TabStroke=ColorSequence.new(Color3.fromRGB(78,92,
-140),Color3.fromRGB(48,58,92)),SliderBackground=Color3.fromRGB(40,48,78),SliderBackgroundHover=Color3.fromRGB(54,64,100)
-,SliderProgress=ColorSequence.new(Color3.fromRGB(64,132,248),Color3.fromRGB(42,104,224)),AccentColor=Color3.fromRGB(48,
+ColorSequence.new(Color3.fromRGB(28,35,62),Color3.fromRGB(28,35,62)),ElementStrokeGradient=ColorSequence.new(Color3.
+fromRGB(63,74,114),Color3.fromRGB(63,74,114)),ElementStrokeHover=Color3.fromRGB(64,76,116),TabBackground=ColorSequence.
+new(Color3.fromRGB(39,48,78),Color3.fromRGB(39,48,78)),TabStroke=ColorSequence.new(Color3.fromRGB(63,75,116),Color3.
+fromRGB(63,75,116)),SliderBackground=Color3.fromRGB(40,48,78),SliderBackgroundHover=Color3.fromRGB(54,64,100),
+SliderProgress=ColorSequence.new(Color3.fromRGB(48,120,240),Color3.fromRGB(48,120,240)),AccentColor=Color3.fromRGB(48,
 120,240),AccentStroke=Color3.fromRGB(96,164,255),ToggleKnobOff=Color3.fromRGB(196,206,232),StatBackground=Color3.
 fromRGB(20,26,48),DropdownHighlight=Color3.fromRGB(48,120,240),NeutralButton=Color3.fromRGB(40,48,78),NeutralButtonHover
 =Color3.fromRGB(54,64,100),NeutralButtonStroke=Color3.fromRGB(120,138,195)}end)()end,[35]=function()local aa,ab,ac=a(35)
 local ad return(function(...)local ae,af=ac(ab.Parent.Parent.utility.designTokens),ac(ab.Parent.Parent.utility.variables
 )local ag=ae.palette.dark return{CornerRoundness=UDim.new(0,ae.radius.xl),WindowColor=ColorSequence.new{
-ColorSequenceKeypoint.new(0,ag.surface),ColorSequenceKeypoint.new(0.9999,Color3.fromRGB(22,22,25)),ColorSequenceKeypoint
-.new(1,ag.border)},ShadowColor=ae.shadows.overlay.dominant,ElementStroke=ag.border,ElementGradient=ColorSequence.new{
-ColorSequenceKeypoint.new(0,ag.surface),ColorSequenceKeypoint.new(0.9999,Color3.fromRGB(28,28,31)),ColorSequenceKeypoint
-.new(1,Color3.fromRGB(28,28,31))},ElementStrokeGradient=ColorSequence.new{ColorSequenceKeypoint.new(0,Color3.fromRGB(64,
-64,70)),ColorSequenceKeypoint.new(0.9999,Color3.fromRGB(80,80,88)),ColorSequenceKeypoint.new(1,Color3.fromRGB(64,64,70))
-},TabColor=ag.foreground,TabBackground=ColorSequence.new(Color3.fromRGB(72,72,78),Color3.fromRGB(63,63,69)),TabStroke=
-ColorSequence.new(Color3.fromRGB(108,108,118),Color3.fromRGB(90,90,98)),SliderBackground=ag.default,
-SliderBackgroundHover=Color3.fromRGB(48,48,52),SliderProgress=ColorSequence.new(ag.accent,Color3.fromRGB(2,104,202)),
-SliderStroke=Color3.fromRGB(72,72,78),ActionColor=ag.foreground,TitleFont=af.brandFont(Enum.FontWeight.SemiBold),Font=af
-.brandFont(Enum.FontWeight.Medium),ContentColor=ag.foreground,LiveAnimation=false,DarkToggleOverlay=true,
-ElementTransparency=0,ElementStrokeTransparency=0,ElementStrokeHoverTransparency=0,ElementStrokeHover=Color3.fromRGB(64,
-64,70),ElementCornerRadius=UDim.new(0,ae.radius.field),ElementTextHoverColor=ag.foreground,TitlingColor=ag.foreground,
+ColorSequenceKeypoint.new(0,ag.surface),ColorSequenceKeypoint.new(0.9999,ag.surface),ColorSequenceKeypoint.new(1,ag.
+border)},ShadowColor=ae.shadows.overlay.dominant,ElementStroke=ag.border,ElementGradient=ColorSequence.new(Color3.
+fromRGB(28,28,31),Color3.fromRGB(28,28,31)),ElementStrokeGradient=ColorSequence.new(Color3.fromRGB(72,72,78),Color3.
+fromRGB(72,72,78)),TabColor=ag.foreground,TabBackground=ColorSequence.new(Color3.fromRGB(70,70,76),Color3.fromRGB(70,70,
+76)),TabStroke=ColorSequence.new(Color3.fromRGB(100,100,109),Color3.fromRGB(100,100,109)),SliderBackground=ag.default,
+SliderBackgroundHover=Color3.fromRGB(48,48,52),SliderProgress=ColorSequence.new(ag.accent,ag.accent),SliderStroke=Color3
+.fromRGB(72,72,78),ActionColor=ag.foreground,TitleFont=af.brandFont(Enum.FontWeight.SemiBold),Font=af.brandFont(Enum.
+FontWeight.Medium),ContentColor=ag.foreground,LiveAnimation=false,DarkToggleOverlay=true,ElementTransparency=0,
+ElementStrokeTransparency=0.85,ElementStrokeHoverTransparency=0.85,ElementStrokeHover=Color3.fromRGB(64,64,70),
+ElementCornerRadius=UDim.new(0,ae.radius.field),ElementTextHoverColor=ag.foreground,TitlingColor=ag.foreground,
 DropdownHighlight=ag.accent,AccentColor=ag.accent,AccentStroke=Color3.fromRGB(110,172,252),AccentGlow=0.4,StatBackground
 =Color3.fromRGB(28,28,31),SliderHandle=Color3.fromRGB(255,255,255),PillCornerRadius=UDim.new(1,0),ToggleTrack=Color3.
 fromRGB(0,0,0),ToggleTrackTransparency=0.9,ToggleKnobOff=Color3.fromRGB(255,255,255),ToggleKnobOffTransparency=0.8,
@@ -2166,115 +2160,110 @@ FieldBackground=Color3.fromRGB(255,255,255),FieldTransparency=0.9,FieldGlow=Colo
 =ag.muted,SurfaceStroke=Color3.fromRGB(255,255,255),NeutralButton=ag.default,NeutralButtonHover=Color3.fromRGB(48,48,52)
 ,NeutralButtonStroke=Color3.fromRGB(255,255,255),ErrorColor=ag.danger,ErrorStrokeColor=Color3.fromRGB(255,92,96)}end)()
 end,[36]=function()local aa,ab,ac=a(36)local ad return(function(...)return{WindowColor=ColorSequence.new{
-ColorSequenceKeypoint.new(0,Color3.fromRGB(22,18,16)),ColorSequenceKeypoint.new(0.9999,Color3.fromRGB(32,27,23)),
+ColorSequenceKeypoint.new(0,Color3.fromRGB(32,27,23)),ColorSequenceKeypoint.new(0.9999,Color3.fromRGB(32,27,23)),
 ColorSequenceKeypoint.new(1,Color3.fromRGB(40,33,28))},ShadowColor=Color3.fromRGB(16,12,8),ElementStroke=Color3.fromRGB(
-54,46,40),ElementGradient=ColorSequence.new{ColorSequenceKeypoint.new(0,Color3.fromRGB(32,27,23)),ColorSequenceKeypoint.
-new(0.9999,Color3.fromRGB(38,32,27)),ColorSequenceKeypoint.new(1,Color3.fromRGB(38,32,27))},ElementStrokeGradient=
-ColorSequence.new{ColorSequenceKeypoint.new(0,Color3.fromRGB(72,62,52)),ColorSequenceKeypoint.new(0.9999,Color3.fromRGB(
-88,76,64)),ColorSequenceKeypoint.new(1,Color3.fromRGB(72,62,52))},ElementStrokeHover=Color3.fromRGB(84,72,60),
-TabBackground=ColorSequence.new(Color3.fromRGB(56,47,40),Color3.fromRGB(36,30,26)),TabStroke=ColorSequence.new(Color3.
-fromRGB(92,78,66),Color3.fromRGB(56,47,40)),SliderBackground=Color3.fromRGB(48,40,34),SliderBackgroundHover=Color3.
-fromRGB(62,52,44),SliderProgress=ColorSequence.new(Color3.fromRGB(244,152,44),Color3.fromRGB(220,110,24)),AccentColor=
+54,46,40),ElementGradient=ColorSequence.new(Color3.fromRGB(35,30,25),Color3.fromRGB(35,30,25)),ElementStrokeGradient=
+ColorSequence.new(Color3.fromRGB(80,69,58),Color3.fromRGB(80,69,58)),ElementStrokeHover=Color3.fromRGB(84,72,60),
+TabBackground=ColorSequence.new(Color3.fromRGB(46,38,33),Color3.fromRGB(46,38,33)),TabStroke=ColorSequence.new(Color3.
+fromRGB(74,62,53),Color3.fromRGB(74,62,53)),SliderBackground=Color3.fromRGB(48,40,34),SliderBackgroundHover=Color3.
+fromRGB(62,52,44),SliderProgress=ColorSequence.new(Color3.fromRGB(240,142,40),Color3.fromRGB(240,142,40)),AccentColor=
 Color3.fromRGB(240,142,40),AccentStroke=Color3.fromRGB(255,182,92),ToggleKnobOff=Color3.fromRGB(232,224,214),
 StatBackground=Color3.fromRGB(26,21,18),DropdownHighlight=Color3.fromRGB(240,142,40),NeutralButton=Color3.fromRGB(48,40,
 34),NeutralButtonHover=Color3.fromRGB(64,54,46),NeutralButtonStroke=Color3.fromRGB(150,128,104)}end)()end,[37]=function(
 )local aa,ab,ac=a(37)local ad return(function(...)local ae,af=ac(ab.Parent.Parent.utility.designTokens),ac(ab.Parent.
 Parent.utility.variables)local ag=ae.palette.light return{WindowColor=ColorSequence.new{ColorSequenceKeypoint.new(0,
-Color3.fromRGB(247,247,248)),ColorSequenceKeypoint.new(0.9999,Color3.fromRGB(243,243,244)),ColorSequenceKeypoint.new(1,
+Color3.fromRGB(245,245,246)),ColorSequenceKeypoint.new(0.9999,Color3.fromRGB(245,245,246)),ColorSequenceKeypoint.new(1,
 ag.border)},ShadowColor=Color3.fromRGB(140,142,148),LiveAnimation=false,ElementTransparency=0,ElementStroke=ag.border,
-ElementGradient=ColorSequence.new{ColorSequenceKeypoint.new(0,ag.surface),ColorSequenceKeypoint.new(0.9999,Color3.
-fromRGB(252,252,253)),ColorSequenceKeypoint.new(1,Color3.fromRGB(252,252,253))},ElementStrokeGradient=ColorSequence.new{
-ColorSequenceKeypoint.new(0,Color3.fromRGB(226,226,229)),ColorSequenceKeypoint.new(0.9999,Color3.fromRGB(232,232,235)),
-ColorSequenceKeypoint.new(1,Color3.fromRGB(226,226,229))},ElementStrokeTransparency=0.1,ElementStrokeHoverTransparency=0
-,ElementStrokeHover=Color3.fromRGB(205,205,210),DarkToggleOverlay=false,TabColor=ag.foreground,TabBackground=
-ColorSequence.new(ag.surface,Color3.fromRGB(248,248,249)),TabStroke=ColorSequence.new(Color3.fromRGB(216,216,220),Color3
-.fromRGB(208,208,212)),SliderBackground=ag.default,SliderBackgroundHover=Color3.fromRGB(228,228,231),SliderProgress=
-ColorSequence.new(ag.accent,Color3.fromRGB(2,104,202)),SliderStroke=Color3.fromRGB(200,202,206),AccentColor=ag.accent,
-AccentStroke=Color3.fromRGB(110,172,252),AccentGlow=0.8,StatBackground=ag.surface,SliderHandle=Color3.fromRGB(255,255,
-255),ToggleTrack=ag.default,ToggleTrackTransparency=0,ToggleKnobOffTransparency=0.05,FieldBackground=ag.field,
-FieldTransparency=0,FieldGlow=Color3.fromRGB(196,198,204),PlaceholderColor=ag.muted,SurfaceStroke=ag.border,
-NeutralButton=ag.default,NeutralButtonHover=Color3.fromRGB(227,227,230),NeutralButtonStroke=Color3.fromRGB(250,250,250),
-ActionColor=ag.foreground,TitlingColor=ag.foreground,TitleFont=af.brandFont(Enum.FontWeight.SemiBold),Font=af.brandFont(
-Enum.FontWeight.Medium),ContentColor=ag.foreground,ElementTextHoverColor=Color3.fromRGB(8,8,10),DropdownHighlight=ag.
-accent,ErrorColor=ag.danger,ErrorStrokeColor=Color3.fromRGB(255,92,96)}end)()end,[38]=function()local aa,ab,ac=a(38)
-local ad return(function(...)return{WindowColor=ColorSequence.new{ColorSequenceKeypoint.new(0,Color3.fromRGB(26,18,22)),
-ColorSequenceKeypoint.new(0.9999,Color3.fromRGB(36,26,31)),ColorSequenceKeypoint.new(1,Color3.fromRGB(44,32,38))},
-ShadowColor=Color3.fromRGB(18,10,14),ElementStroke=Color3.fromRGB(58,44,50),ElementGradient=ColorSequence.new{
-ColorSequenceKeypoint.new(0,Color3.fromRGB(34,25,29)),ColorSequenceKeypoint.new(0.9999,Color3.fromRGB(40,30,34)),
-ColorSequenceKeypoint.new(1,Color3.fromRGB(40,30,34))},ElementStrokeGradient=ColorSequence.new{ColorSequenceKeypoint.
-new(0,Color3.fromRGB(76,58,66)),ColorSequenceKeypoint.new(0.9999,Color3.fromRGB(92,70,80)),ColorSequenceKeypoint.new(1,
-Color3.fromRGB(76,58,66))},ElementStrokeHover=Color3.fromRGB(88,66,74),TabBackground=ColorSequence.new(Color3.fromRGB(62
-,46,53),Color3.fromRGB(38,29,33)),TabStroke=ColorSequence.new(Color3.fromRGB(102,78,88),Color3.fromRGB(62,46,53)),
-SliderBackground=Color3.fromRGB(50,38,44),SliderBackgroundHover=Color3.fromRGB(64,50,56),SliderProgress=ColorSequence.
-new(Color3.fromRGB(244,88,140),Color3.fromRGB(220,60,116)),AccentColor=Color3.fromRGB(240,82,138),AccentStroke=Color3.
-fromRGB(255,134,178),ToggleKnobOff=Color3.fromRGB(236,220,226),StatBackground=Color3.fromRGB(28,20,24),DropdownHighlight
-=Color3.fromRGB(240,82,138),NeutralButton=Color3.fromRGB(50,38,44),NeutralButtonHover=Color3.fromRGB(64,50,56),
-NeutralButtonStroke=Color3.fromRGB(170,122,140)}end)()end,[39]=function()local aa,ab,ac=a(39)local ad return(function(
-...)export type Theme=string|{[string]:any}export type Translator=(source:string,localeId:string)->string?export type
-Translations={[string]:{[string]:string}}export type WindowConfiguration={autoSave:boolean?,autoLoad:boolean?,fileName:
-string?,customFolder:string?}export type WindowProps={name:string?,subtitle:string?,theme:Theme?,icon:(string|number)?,
-showName:string?,showIcon:(string|number)?,showIconOnly:boolean?,sidebarLayout:boolean?,profile:string?,configuration:
-WindowConfiguration?,fallbackFont:(Font|Enum.Font)?,locale:string?,translations:Translations?,translator:Translator?}
-export type TabProps={name:string?,icon:(string|number)?}export type TagProps={text:string?,title:string?,icon:(string|
-number)?,color:Color3?,order:number?}export type SectionProps={name:string?,icon:(string|number)?}export type TextProps=
-{name:string?,text:string?,icon:(string|number)?}export type DividerProps={text:string?,spacing:number?,line:boolean?}
-export type GroupProps={direction:string?}export type ButtonProps={name:string?,description:string?,icon:(string|number)
-?,callback:(()->())?}export type ToggleProps={name:string?,description:string?,icon:(string|number)?,flag:string?,value:
-boolean?,forgetState:boolean?,callback:((value:boolean)->())?}export type SliderProps={name:string?,description:string?,
-icon:(string|number)?,flag:string?,range:{number}?,increment:number?,value:number?,suffix:string?,minimal:boolean?,
-forgetState:boolean?,callback:((value:number,dragging:boolean)->())?}export type DropdownProps={name:string?,description
-:string?,icon:(string|number)?,flag:string?,options:{string}?,value:(string|{string})?,multiSelect:boolean?,placeholder:
-string?,forgetState:boolean?,callback:((value:any)->())?}export type InputProps={name:string?,description:string?,icon:(
-string|number)?,flag:string?,value:string?,placeholder:string?,numeric:boolean?,clearOnFocus:boolean?,forgetState:
-boolean?,callback:((value:string)->())?}export type KeybindProps={name:string?,description:string?,icon:(string|number)?
-,flag:string?,value:(EnumItem|string)?,forgetState:boolean?,isMenuToggle:boolean?,hold:boolean?,holdThreshold:number?,
-callback:((value:EnumItem|boolean)->())?,onChanged:((key:EnumItem)->())?}export type ColorPickerProps={name:string?,
-description:string?,icon:(string|number)?,flag:string?,color:Color3?,alpha:number?,forgetState:boolean?,callback:((value
-:Color3,alpha:number)->())?}export type StatProps={name:string?,description:string?,icon:(string|number)?,prefix:string?
-,suffix:string?,value:number?,display:string?,compact:boolean?,changeMode:string?,changeBaseline:string?,numberEasing:
-boolean?}export type ProgressProps={name:string?,description:string?,icon:(string|number)?,range:{number}?,value:number?
-,steps:number?,text:string?,format:((value:number,min:number,max:number)->string)?,showValue:boolean?,indeterminate:
-boolean?}export type ConsoleProps={name:string?,description:string?,text:string?,height:number?,follow:boolean?,maxLines
-:number?}export type NotifyProps={title:string?,content:string?,icon:(string|number)?,duration:number?}export type
-ToastProps={title:string?,subtitle:string?,subtitleAbove:boolean?,icon:(string|number)?,avatar:number?,minWidth:number?,
-duration:number?,position:'Top'|'Bottom'?}export type PopupBox={title:string?,description:string?,icon:(string|number)?}
-export type PopupOption={text:string?,style:string?,callback:(()->())?}export type PopupProps={title:string?,subtitle:
-string?,icon:(string|number)?,content:string?,boxes:{PopupBox}?,options:{PopupOption}?,dismissable:boolean?}export type
-Moveable={MoveTo:(self:any,index:number)->(),MoveToTop:(self:any)->(),MoveToBottom:(self:any)->(),MoveUp:(self:any)->(),
-MoveDown:(self:any)->()}export type Lockable={Lock:(self:any,reason:string?)->(),Unlock:(self:any)->(),IsLocked:(self:
-any)->boolean}export type Button=Moveable&Lockable&{}export type Toggle=Moveable&Lockable&{value:boolean,Set:(self:
-Toggle,value:boolean,skipCallback:boolean?)->()}export type Slider=Moveable&Lockable&{value:number,Set:(self:Slider,
-value:number,skipCallback:boolean?)->()}export type Dropdown=Moveable&Lockable&{value:{string},Set:(self:Dropdown,value:
-string|{string},skipCallback:boolean?)->(),Refresh:(self:Dropdown,options:{string})->(),Add:(self:Dropdown,option:string
-)->(),Remove:(self:Dropdown,option:string)->()}export type Input=Moveable&Lockable&{value:string,Set:(self:Input,value:
-string,skipCallback:boolean?)->()}export type Keybind=Moveable&Lockable&{value:EnumItem,Set:(self:Keybind,value:EnumItem
-|string,skipChanged:boolean?)->()}export type ColorPicker=Moveable&Lockable&{value:Color3,alpha:number,Set:(self:
-ColorPicker,value:Color3|string,skipCallback:boolean?)->(),SetAlpha:(self:ColorPicker,alpha:number,skipCallback:boolean?
-)->()}export type Stat=Moveable&{value:number,Set:(self:Stat,value:number)->(),ResetBaseline:(self:Stat,value:number?)->
-()}export type Progress=Moveable&{value:number,Set:(self:Progress,value:number)->(),Get:(self:Progress)->number,
-GetPercentage:(self:Progress)->number,SetRange:(self:Progress,min:number,max:number)->(),SetText:(self:Progress,text:
-string?)->(),SetIndeterminate:(self:Progress,state:boolean)->(),Remove:(self:Progress)->()}export type Console=Moveable&
-{Set:(self:Console,text:string)->(),Append:(self:Console,line:string)->(),Clear:(self:Console)->(),Get:(self:Console)->
-string,Copy:(self:Console)->boolean,SetHeight:(self:Console,height:number)->(),Remove:(self:Console)->()}export type
-Section=Moveable&{}export type TabSection={Remove:(self:TabSection)->()}export type Text=Moveable&{name:string,text:
-string,Set:(self:Text,text:string)->(),SetTitle:(self:Text,title:string)->()}export type Divider=Moveable&{text:string,
-Set:(self:Divider,text:string?)->()}export type Tag={Set:(self:Tag,props:TagProps)->(),SetColor:(self:Tag,color:Color3
-)->(),SetText:(self:Tag,text:string?)->(),SetIcon:(self:Tag,icon:(string|number)?)->(),Remove:(self:Tag)->()}export type
-Popup={Close:(self:Popup)->()}export type Group=Moveable&{CreateButton:(self:Group,props:ButtonProps)->Button,
-CreateToggle:(self:Group,props:ToggleProps)->Toggle,CreateSwitch:(self:Group,props:ToggleProps)->Toggle,CreateStat:(self
-:Group,props:StatProps)->Stat,CreateSlider:(self:Group,props:SliderProps)->Slider,CreateDropdown:(self:Group,props:
-DropdownProps)->Dropdown?,CreateSection:(self:Group,props:SectionProps)->Section?,CreateText:(self:Group,props:TextProps
-)->Text?,CreateDivider:(self:Group,props:DividerProps?)->Divider?,CreateGroup:(self:Group,props:GroupProps?)->Group}
-export type Tab={Select:(self:Tab,noAnimation:boolean?)->(),Deselect:(self:Tab,noAnimation:boolean?)->(),Remove:(self:
-Tab)->(),CreateButton:(self:Tab,props:ButtonProps)->Button,CreateToggle:(self:Tab,props:ToggleProps)->Toggle,
-CreateSwitch:(self:Tab,props:ToggleProps)->Toggle,CreateSlider:(self:Tab,props:SliderProps)->Slider,CreateDropdown:(self
-:Tab,props:DropdownProps)->Dropdown,CreateInput:(self:Tab,props:InputProps)->Input,CreateKeybind:(self:Tab,props:
-KeybindProps)->Keybind,CreateColorPicker:(self:Tab,props:ColorPickerProps)->ColorPicker,CreateStat:(self:Tab,props:
-StatProps)->Stat,CreateProgress:(self:Tab,props:ProgressProps)->Progress,CreateConsole:(self:Tab,props:ConsoleProps)->
-Console,CreateSection:(self:Tab,props:SectionProps)->Section,CreateText:(self:Tab,props:TextProps)->Text,CreateDivider:(
-self:Tab,props:DividerProps?)->Divider,CreateGroup:(self:Tab,props:GroupProps?)->Group}export type Window={unloaded:
-boolean,Flags:{[string]:any},CreateTab:(self:Window,props:TabProps)->Tab,CreateSection:(self:Window,props:SectionProps
-)->TabSection,CreateTag:(self:Window,props:TagProps)->Tag,Notify:(self:Window,props:NotifyProps)->(),Toast:(self:Window,
+ElementGradient=ColorSequence.new(Color3.fromRGB(252,252,253),Color3.fromRGB(252,252,253)),ElementStrokeGradient=
+ColorSequence.new(Color3.fromRGB(229,229,232),Color3.fromRGB(229,229,232)),ElementStrokeTransparency=0.85,
+ElementStrokeHoverTransparency=0.85,ElementStrokeHover=Color3.fromRGB(205,205,210),DarkToggleOverlay=false,TabColor=ag.
+foreground,TabBackground=ColorSequence.new(Color3.fromRGB(252,252,253),Color3.fromRGB(252,252,253)),TabStroke=
+ColorSequence.new(Color3.fromRGB(212,212,216),Color3.fromRGB(212,212,216)),SliderBackground=ag.default,
+SliderBackgroundHover=Color3.fromRGB(228,228,231),SliderProgress=ColorSequence.new(ag.accent,ag.accent),SliderStroke=
+Color3.fromRGB(200,202,206),AccentColor=ag.accent,AccentStroke=Color3.fromRGB(110,172,252),AccentGlow=0.8,StatBackground
+=ag.surface,SliderHandle=Color3.fromRGB(255,255,255),ToggleTrack=ag.default,ToggleTrackTransparency=0,
+ToggleKnobOffTransparency=0.05,FieldBackground=ag.field,FieldTransparency=0,FieldGlow=Color3.fromRGB(196,198,204),
+PlaceholderColor=ag.muted,SurfaceStroke=ag.border,NeutralButton=ag.default,NeutralButtonHover=Color3.fromRGB(227,227,230
+),NeutralButtonStroke=Color3.fromRGB(250,250,250),ActionColor=ag.foreground,TitlingColor=ag.foreground,TitleFont=af.
+brandFont(Enum.FontWeight.SemiBold),Font=af.brandFont(Enum.FontWeight.Medium),ContentColor=ag.foreground,
+ElementTextHoverColor=Color3.fromRGB(8,8,10),DropdownHighlight=ag.accent,ErrorColor=ag.danger,ErrorStrokeColor=Color3.
+fromRGB(255,92,96)}end)()end,[38]=function()local aa,ab,ac=a(38)local ad return(function(...)return{WindowColor=
+ColorSequence.new{ColorSequenceKeypoint.new(0,Color3.fromRGB(36,26,31)),ColorSequenceKeypoint.new(0.9999,Color3.fromRGB(
+36,26,31)),ColorSequenceKeypoint.new(1,Color3.fromRGB(44,32,38))},ShadowColor=Color3.fromRGB(18,10,14),ElementStroke=
+Color3.fromRGB(58,44,50),ElementGradient=ColorSequence.new(Color3.fromRGB(37,28,32),Color3.fromRGB(37,28,32)),
+ElementStrokeGradient=ColorSequence.new(Color3.fromRGB(84,64,73),Color3.fromRGB(84,64,73)),ElementStrokeHover=Color3.
+fromRGB(88,66,74),TabBackground=ColorSequence.new(Color3.fromRGB(50,38,43),Color3.fromRGB(50,38,43)),TabStroke=
+ColorSequence.new(Color3.fromRGB(82,62,70),Color3.fromRGB(82,62,70)),SliderBackground=Color3.fromRGB(50,38,44),
+SliderBackgroundHover=Color3.fromRGB(64,50,56),SliderProgress=ColorSequence.new(Color3.fromRGB(240,82,138),Color3.
+fromRGB(240,82,138)),AccentColor=Color3.fromRGB(240,82,138),AccentStroke=Color3.fromRGB(255,134,178),ToggleKnobOff=
+Color3.fromRGB(236,220,226),StatBackground=Color3.fromRGB(28,20,24),DropdownHighlight=Color3.fromRGB(240,82,138),
+NeutralButton=Color3.fromRGB(50,38,44),NeutralButtonHover=Color3.fromRGB(64,50,56),NeutralButtonStroke=Color3.fromRGB(
+170,122,140)}end)()end,[39]=function()local aa,ab,ac=a(39)local ad return(function(...)export type Theme=string|{[string
+]:any}export type Translator=(source:string,localeId:string)->string?export type Translations={[string]:{[string]:string
+}}export type WindowConfiguration={autoSave:boolean?,autoLoad:boolean?,fileName:string?,customFolder:string?}export type
+WindowProps={name:string?,subtitle:string?,theme:Theme?,icon:(string|number)?,showName:string?,showIcon:(string|number)?
+,showIconOnly:boolean?,sidebarLayout:boolean?,profile:string?,configuration:WindowConfiguration?,fallbackFont:(Font|Enum
+.Font)?,locale:string?,translations:Translations?,translator:Translator?}export type TabProps={name:string?,icon:(string
+|number)?}export type TagProps={text:string?,title:string?,icon:(string|number)?,color:Color3?,order:number?}export type
+SectionProps={name:string?,icon:(string|number)?}export type TextProps={name:string?,text:string?,icon:(string|number)?}
+export type DividerProps={text:string?,spacing:number?,line:boolean?}export type GroupProps={direction:string?}export
+type ButtonProps={name:string?,description:string?,icon:(string|number)?,callback:(()->())?}export type ToggleProps={
+name:string?,description:string?,icon:(string|number)?,flag:string?,value:boolean?,forgetState:boolean?,callback:((value
+:boolean)->())?}export type SliderProps={name:string?,description:string?,icon:(string|number)?,flag:string?,range:{
+number}?,increment:number?,value:number?,suffix:string?,minimal:boolean?,forgetState:boolean?,callback:((value:number,
+dragging:boolean)->())?}export type DropdownProps={name:string?,description:string?,icon:(string|number)?,flag:string?,
+options:{string}?,value:(string|{string})?,multiSelect:boolean?,placeholder:string?,forgetState:boolean?,callback:((
+value:any)->())?}export type InputProps={name:string?,description:string?,icon:(string|number)?,flag:string?,value:
+string?,placeholder:string?,numeric:boolean?,clearOnFocus:boolean?,forgetState:boolean?,callback:((value:string)->())?}
+export type KeybindProps={name:string?,description:string?,icon:(string|number)?,flag:string?,value:(EnumItem|string)?,
+forgetState:boolean?,isMenuToggle:boolean?,hold:boolean?,holdThreshold:number?,callback:((value:EnumItem|boolean)->())?,
+onChanged:((key:EnumItem)->())?}export type ColorPickerProps={name:string?,description:string?,icon:(string|number)?,
+flag:string?,color:Color3?,alpha:number?,forgetState:boolean?,callback:((value:Color3,alpha:number)->())?}export type
+StatProps={name:string?,description:string?,icon:(string|number)?,prefix:string?,suffix:string?,value:number?,display:
+string?,compact:boolean?,changeMode:string?,changeBaseline:string?,numberEasing:boolean?}export type ProgressProps={name
+:string?,description:string?,icon:(string|number)?,range:{number}?,value:number?,steps:number?,text:string?,format:((
+value:number,min:number,max:number)->string)?,showValue:boolean?,indeterminate:boolean?}export type ConsoleProps={name:
+string?,description:string?,text:string?,height:number?,follow:boolean?,maxLines:number?}export type NotifyProps={title:
+string?,content:string?,icon:(string|number)?,duration:number?}export type ToastProps={title:string?,subtitle:string?,
+subtitleAbove:boolean?,icon:(string|number)?,avatar:number?,minWidth:number?,duration:number?,position:'Top'|'Bottom'?}
+export type PopupBox={title:string?,description:string?,icon:(string|number)?}export type PopupOption={text:string?,
+style:string?,callback:(()->())?}export type PopupProps={title:string?,subtitle:string?,icon:(string|number)?,content:
+string?,boxes:{PopupBox}?,options:{PopupOption}?,dismissable:boolean?}export type Moveable={MoveTo:(self:any,index:
+number)->(),MoveToTop:(self:any)->(),MoveToBottom:(self:any)->(),MoveUp:(self:any)->(),MoveDown:(self:any)->()}export
+type Lockable={Lock:(self:any,reason:string?)->(),Unlock:(self:any)->(),IsLocked:(self:any)->boolean}export type Button=
+Moveable&Lockable&{}export type Toggle=Moveable&Lockable&{value:boolean,Set:(self:Toggle,value:boolean,skipCallback:
+boolean?)->()}export type Slider=Moveable&Lockable&{value:number,Set:(self:Slider,value:number,skipCallback:boolean?)->(
+)}export type Dropdown=Moveable&Lockable&{value:{string},Set:(self:Dropdown,value:string|{string},skipCallback:boolean?
+)->(),Refresh:(self:Dropdown,options:{string})->(),Add:(self:Dropdown,option:string)->(),Remove:(self:Dropdown,option:
+string)->()}export type Input=Moveable&Lockable&{value:string,Set:(self:Input,value:string,skipCallback:boolean?)->()}
+export type Keybind=Moveable&Lockable&{value:EnumItem,Set:(self:Keybind,value:EnumItem|string,skipChanged:boolean?)->()}
+export type ColorPicker=Moveable&Lockable&{value:Color3,alpha:number,Set:(self:ColorPicker,value:Color3|string,
+skipCallback:boolean?)->(),SetAlpha:(self:ColorPicker,alpha:number,skipCallback:boolean?)->()}export type Stat=Moveable&
+{value:number,Set:(self:Stat,value:number)->(),ResetBaseline:(self:Stat,value:number?)->()}export type Progress=Moveable
+&{value:number,Set:(self:Progress,value:number)->(),Get:(self:Progress)->number,GetPercentage:(self:Progress)->number,
+SetRange:(self:Progress,min:number,max:number)->(),SetText:(self:Progress,text:string?)->(),SetIndeterminate:(self:
+Progress,state:boolean)->(),Remove:(self:Progress)->()}export type Console=Moveable&{Set:(self:Console,text:string)->(),
+Append:(self:Console,line:string)->(),Clear:(self:Console)->(),Get:(self:Console)->string,Copy:(self:Console)->boolean,
+SetHeight:(self:Console,height:number)->(),Remove:(self:Console)->()}export type Section=Moveable&{}export type
+TabSection={Remove:(self:TabSection)->()}export type Text=Moveable&{name:string,text:string,Set:(self:Text,text:string
+)->(),SetTitle:(self:Text,title:string)->()}export type Divider=Moveable&{text:string,Set:(self:Divider,text:string?)->(
+)}export type Tag={Set:(self:Tag,props:TagProps)->(),SetColor:(self:Tag,color:Color3)->(),SetText:(self:Tag,text:string?
+)->(),SetIcon:(self:Tag,icon:(string|number)?)->(),Remove:(self:Tag)->()}export type Popup={Close:(self:Popup)->()}
+export type Group=Moveable&{CreateButton:(self:Group,props:ButtonProps)->Button,CreateToggle:(self:Group,props:
+ToggleProps)->Toggle,CreateSwitch:(self:Group,props:ToggleProps)->Toggle,CreateStat:(self:Group,props:StatProps)->Stat,
+CreateSlider:(self:Group,props:SliderProps)->Slider,CreateDropdown:(self:Group,props:DropdownProps)->Dropdown?,
+CreateSection:(self:Group,props:SectionProps)->Section?,CreateText:(self:Group,props:TextProps)->Text?,CreateDivider:(
+self:Group,props:DividerProps?)->Divider?,CreateGroup:(self:Group,props:GroupProps?)->Group}export type Tab={Select:(
+self:Tab,noAnimation:boolean?)->(),Deselect:(self:Tab,noAnimation:boolean?)->(),Remove:(self:Tab)->(),CreateButton:(self
+:Tab,props:ButtonProps)->Button,CreateToggle:(self:Tab,props:ToggleProps)->Toggle,CreateSwitch:(self:Tab,props:
+ToggleProps)->Toggle,CreateSlider:(self:Tab,props:SliderProps)->Slider,CreateDropdown:(self:Tab,props:DropdownProps)->
+Dropdown,CreateInput:(self:Tab,props:InputProps)->Input,CreateKeybind:(self:Tab,props:KeybindProps)->Keybind,
+CreateColorPicker:(self:Tab,props:ColorPickerProps)->ColorPicker,CreateStat:(self:Tab,props:StatProps)->Stat,
+CreateProgress:(self:Tab,props:ProgressProps)->Progress,CreateConsole:(self:Tab,props:ConsoleProps)->Console,
+CreateSection:(self:Tab,props:SectionProps)->Section,CreateText:(self:Tab,props:TextProps)->Text,CreateDivider:(self:Tab
+,props:DividerProps?)->Divider,CreateGroup:(self:Tab,props:GroupProps?)->Group}export type Window={unloaded:boolean,
+Flags:{[string]:any},CreateTab:(self:Window,props:TabProps)->Tab,CreateSection:(self:Window,props:SectionProps)->
+TabSection,CreateTag:(self:Window,props:TagProps)->Tag,Notify:(self:Window,props:NotifyProps)->(),Toast:(self:Window,
 props:ToastProps)->(),Popup:(self:Window,props:PopupProps)->Popup?,Show:(self:Window)->(),Hide:(self:Window)->(),
 ToggleHide:(self:Window)->(),ToggleMinimise:(self:Window)->(),Navigate:(self:Window,tab:string|Tab)->(),ChangeTheme:(
 self:Window,theme:Theme)->(),SetLocale:(self:Window,localeId:string)->(),SetTranslator:(self:Window,translator:
@@ -2764,35 +2753,35 @@ local c=af.profile(b)if not am or am.X<ag or am.Y<ag then return UDim2.fromOffse
 local d,e=math.min(am.X*c.maxOccupancyX,am.X-c.marginFloorX),ai(c,am.Y)if c.minAspectRatio then return al(c,d,e)end
 return ak(c,d,e)end function af.ceiling(am:Vector2?,b:ae.Mode?):Vector2 local c=af.profile(b)if not am or am.X<ag or am.
 Y<ag then return c.defaultSize end local d,e=math.min(am.X*c.maxOccupancyX,am.X-c.marginFloorX),ai(c,am.Y)return Vector2
-.new(math.floor(d),math.floor(e))end return af end)()end},{{1,2,{'Rayfield'},{{2,1,{'components'},{{25,2,{'tabSection'}}
-,{15,2,{'notification'}},{9,2,{'divider'}},{11,2,{'dropdown'}},{10,2,{'drag'}},{14,2,{'keybind'}},{23,2,{'stat'}},{30,2,
-{'toggle'}},{29,2,{'toast'}},{7,2,{'console'}},{27,2,{'tag'}},{17,2,{'progress'}},{6,2,{'colorpicker'}},{13,2,{'input'}}
-,{26,2,{'tabSelector'}},{24,2,{'tab'}},{31,2,{'window'}},{12,2,{'group'}},{22,2,{'slider'}},{21,2,{'sidebar'}},{16,2,{
-'popup'}},{20,2,{'section'}},{18,2,{'resize'}},{5,2,{'chrome'}},{8,2,{'descriptor'}},{4,2,{'button'}},{3,2,{'action'}},{
-19,2,{'search'}},{28,2,{'text'}}}},{40,1,{'utility'},{{54,2,{'layouts'}},{72,2,{'windowSizing'}},{53,2,{'imageCache'}},{
-71,2,{'variables'}},{52,2,{'image'}},{55,2,{'locale'}},{69,2,{'services'}},{42,2,{'assetResolver'}},{70,2,{'textMetrics'
-}},{48,2,{'filesystemManager'}},{65,2,{'persistencePaths'}},{68,2,{'runtime'}},{59,2,{'network'}},{51,2,{'functions'}},{
-49,2,{'flagNames'}},{44,2,{'constants'}},{66,2,{'persistenceSettings'}},{64,2,{'persistenceConfig'}},{56,2,{'lockable'}}
-,{45,2,{'designTokens'}},{62,2,{'path'}},{43,2,{'colors'}},{57,2,{'log'}},{61,2,{'ordering'}},{58,2,{'moveable'}},{46,2,
-{'enums'}},{50,2,{'fontManager'}},{67,2,{'persistenceWrite'}},{63,2,{'persistence'}},{41,2,{'HapticEngine'}},{60,2,{
-'odometer'}},{47,2,{'filesystem'}}}},{32,1,{'themes'},{{33,2,{'amethyst'}},{37,2,{'frost'}},{34,2,{'cobalt'}},{36,2,{
-'ember'}},{35,2,{'default'}},{38,2,{'rose'}}}},{39,2,{'types'}}}}},'0.4.1','Rayfield',string,task,setmetatable,error,
-next,table,unpack,coroutine,script,type,require,pcall,xpcall,tostring,tonumber,_VERSION local j,k,l,m,n,o,p=aj.insert,aj
-.remove,aj.freeze or function(j)return j end,al.wrap,ae.sub,ae.match,ae.gmatch if h and n(h,1,4)=='Lune'then local q,r=
-d(c,'@lune/task')if q and r then af=r end end local q=af and af.defer local r,s,t,u,v,w,x,y,z=q or function(r,...)m(r)(
-...)end,{[1]='Folder',[2]='ModuleScript',[3]='Script',[4]='LocalScript',[5]='StringValue'},{},{},{},{},{},{},{}local A,B
-={GetFullName={{},function(A)local B,C=A.Name,A.Parent while C do B=C.Name..'.'..B C=C.Parent end return B end},
-GetChildren={{},function(A)local B={}for C in ai,z[A]do j(B,C)end return B end},GetDescendants={{},function(A)local B={}
-for C in ai,z[A]do j(B,C)for D,E in ai,C:GetDescendants()do j(B,E)end end return B end},FindFirstChild={{'string',
-'boolean?'},function(A,B,C)local D=z[A]for E in ai,D do if E.Name==B then return E end end if C then for E in ai,D do
-return E:FindFirstChild(B,true)end end end},FindFirstAncestor={{'string'},function(A,B)local C=A.Parent while C do if C.
-Name==B then return C end C=C.Parent end end},WaitForChild={{'string','number?'},function(A,B)return A:FindFirstChild(B)
-end}},{}for C,D in ai,A do local E,F,G=D[1],D[2],{}for H,I in ai,E do local J,K=o(I,'^([^%?]+)(%??)')G[H]={J,K}end B[C]=
-function(H,...)if not z[H]then ah("Expected ':' not '.' calling member function "..C,2)end local I={...}for J,K in ai,G
-do local L=I[J]local M,N,O=b(L),K[1],K[2]if L==nil and not O then ah('Argument '..L..' missing or nil',3)end if N~='any'
-and M~=N and not(M=='nil'and O)then ah('Argument '..J..' expects type "'..N..'", got "'..M..'"',2)end end return F(H,...
-)end end local function C(D,E,F)local G,H=(ag({},{__mode='k'}))local function I(J)ah(J..
-' is not a valid (virtual) member of '..D..' "'..E..'"',3)end local function J(K)ah(
+.new(math.floor(d),math.floor(e))end return af end)()end},{{1,2,{'Rayfield'},{{2,1,{'components'},{{30,2,{'toggle'}},{20
+,2,{'section'}},{23,2,{'stat'}},{24,2,{'tab'}},{31,2,{'window'}},{29,2,{'toast'}},{13,2,{'input'}},{19,2,{'search'}},{18
+,2,{'resize'}},{14,2,{'keybind'}},{7,2,{'console'}},{8,2,{'descriptor'}},{26,2,{'tabSelector'}},{27,2,{'tag'}},{5,2,{
+'chrome'}},{10,2,{'drag'}},{16,2,{'popup'}},{28,2,{'text'}},{4,2,{'button'}},{12,2,{'group'}},{25,2,{'tabSection'}},{15,
+2,{'notification'}},{22,2,{'slider'}},{17,2,{'progress'}},{6,2,{'colorpicker'}},{21,2,{'sidebar'}},{9,2,{'divider'}},{3,
+2,{'action'}},{11,2,{'dropdown'}}}},{40,1,{'utility'},{{66,2,{'persistenceSettings'}},{48,2,{'filesystemManager'}},{68,2
+,{'runtime'}},{69,2,{'services'}},{70,2,{'textMetrics'}},{63,2,{'persistence'}},{60,2,{'odometer'}},{43,2,{'colors'}},{
+67,2,{'persistenceWrite'}},{58,2,{'moveable'}},{72,2,{'windowSizing'}},{61,2,{'ordering'}},{53,2,{'imageCache'}},{59,2,{
+'network'}},{51,2,{'functions'}},{47,2,{'filesystem'}},{62,2,{'path'}},{65,2,{'persistencePaths'}},{64,2,{
+'persistenceConfig'}},{54,2,{'layouts'}},{52,2,{'image'}},{42,2,{'assetResolver'}},{56,2,{'lockable'}},{55,2,{'locale'}}
+,{50,2,{'fontManager'}},{41,2,{'HapticEngine'}},{45,2,{'designTokens'}},{57,2,{'log'}},{44,2,{'constants'}},{49,2,{
+'flagNames'}},{46,2,{'enums'}},{71,2,{'variables'}}}},{39,2,{'types'}},{32,1,{'themes'},{{33,2,{'amethyst'}},{37,2,{
+'frost'}},{35,2,{'default'}},{38,2,{'rose'}},{36,2,{'ember'}},{34,2,{'cobalt'}}}}}}},'0.4.1','Rayfield',string,task,
+setmetatable,error,next,table,unpack,coroutine,script,type,require,pcall,xpcall,tostring,tonumber,_VERSION local j,k,l,m
+,n,o,p=aj.insert,aj.remove,aj.freeze or function(j)return j end,al.wrap,ae.sub,ae.match,ae.gmatch if h and n(h,1,4)==
+'Lune'then local q,r=d(c,'@lune/task')if q and r then af=r end end local q=af and af.defer local r,s,t,u,v,w,x,y,z=q or
+function(r,...)m(r)(...)end,{[1]='Folder',[2]='ModuleScript',[3]='Script',[4]='LocalScript',[5]='StringValue'},{},{},{},
+{},{},{},{}local A,B={GetFullName={{},function(A)local B,C=A.Name,A.Parent while C do B=C.Name..'.'..B C=C.Parent end
+return B end},GetChildren={{},function(A)local B={}for C in ai,z[A]do j(B,C)end return B end},GetDescendants={{},
+function(A)local B={}for C in ai,z[A]do j(B,C)for D,E in ai,C:GetDescendants()do j(B,E)end end return B end},
+FindFirstChild={{'string','boolean?'},function(A,B,C)local D=z[A]for E in ai,D do if E.Name==B then return E end end if
+C then for E in ai,D do return E:FindFirstChild(B,true)end end end},FindFirstAncestor={{'string'},function(A,B)local C=A
+.Parent while C do if C.Name==B then return C end C=C.Parent end end},WaitForChild={{'string','number?'},function(A,B)
+return A:FindFirstChild(B)end}},{}for C,D in ai,A do local E,F,G=D[1],D[2],{}for H,I in ai,E do local J,K=o(I,
+'^([^%?]+)(%??)')G[H]={J,K}end B[C]=function(H,...)if not z[H]then ah("Expected ':' not '.' calling member function "..C
+,2)end local I={...}for J,K in ai,G do local L=I[J]local M,N,O=b(L),K[1],K[2]if L==nil and not O then ah('Argument '..L
+..' missing or nil',3)end if N~='any'and M~=N and not(M=='nil'and O)then ah('Argument '..J..' expects type "'..N..
+'", got "'..M..'"',2)end end return F(H,...)end end local function C(D,E,F)local G,H=(ag({},{__mode='k'}))local function
+I(J)ah(J..' is not a valid (virtual) member of '..D..' "'..E..'"',3)end local function J(K)ah(
 'Unable to assign (virtual) property '..K..'. Property is read only',3)end local K,L={},{}L.__metatable=false L.__index=
 function(M,N)if N=='ClassName'then return D elseif N=='Name'then return E elseif N=='Parent'then return F elseif D==
 'StringValue'and N=='Value'then return H else local O=B[N]if O then return O end end for O in ai,G do if O.Name==N then
