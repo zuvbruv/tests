@@ -682,27 +682,29 @@ local ad=table.find(ac.tab.elements,ac)if ad then ac.tab:_moveElement(ac,ad-1)en
 table.find(ac.tab.elements,ac)if ad then ac.tab:_moveElement(ac,ad+1)end end o(f)return f end)()end,[13]=function()local
 aa,ab,ac=a(13)local ad return(function(...)local ae,af,ag,ah=ac(ab.Parent.Parent.utility.variables),ac(ab.Parent.Parent.
 utility.network),{},{logo={512,512},thumbnail={768,432}}local function ai(b,c)local d=ah[c]if not d then return nil end
-local e=if c=='logo'then'Logo'else'GameThumbnail'return string.format('rbxthumb://type=%s&id=%d&w=%d&h=%d',e,b,d[1],d[2]
-)end local function b(c,d)local e=ah[d]if not e then return nil end return string.format(
-[[https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds=%d&size=%dx%d&format=Png&isCircular=false]],c,e
-[1],e[2])end ag.thumbnailUrl=b::((universeId:number,kind:string)->string?)?ag.lastUniverseId=nil::number?local function
-c(d,e)local f=ah[e]if not d or not f then return nil end local g=af.getRequestFn()if not g then return ai(d,e)end local
-h=ag.thumbnailUrl local i=if type(h)=='function'then h(d,e)else h and string.format(h,d,f[1],f[2])if not i then return
-ai(d,e)end local j,k=pcall(g,{Url=i,Method='GET'})if not j or type(k)~='table'then return ai(d,e)end local l=k.Body if
-type(l)~='string'or l==''then return ai(d,e)end local m,n=pcall(function()return ae.httpService:JSONDecode(l)end)if not
-m or type(n)~='table'then return ai(d,e)end local o=n.data if type(o)~='table'then return ai(d,e)end local p=o[1]if
-type(p)~='table'then return ai(d,e)end if p.state=='Completed'and type(p.imageUrl)=='string'then return p.imageUrl end
-return ai(d,e)end function ag.get(d)local e,f=if type(game)=='table'and type(game.PlaceId)=='number'then game.PlaceId
-else 0,{name=type(game)=='table'and type(game.Name)=='string'and game.Name or'..',creator=nil,description=nil,universeId
-=nil}if e==0 then d(f)return end local g,h=pcall(function()return game:GetService'MarketplaceService':GetProductInfo(e)
-end)if not g or type(h)~='table'then d(f)return end if type(h.UniverseId)=='number'and h.UniverseId~=0 then f.universeId
-=h.UniverseId end if type(h.Name)=='string'and h.Name~=''then f.name=h.Name end local i=h.Creator if type(i)=='table'and
-type(i.Name)=='string'and i.Name~=''then f.creator=i.Name end if type(h.Description)=='string'and h.Description~=''then
-f.description=h.Description end ag.lastUniverseId=f.universeId d(f)end function ag.thumbnails(d,e)if not d then e(nil,
-nil)return end task.spawn(function()local f,g=c(d,'thumbnail'),c(d,'logo')if e then e(f,g)end end)end return ag end)()
-end,[14]=function()local aa,ab,ac=a(14)local ad return(function(...)local ae={}ae.__index=ae ae.__type='Group'local af,
-ag,ah,ai,b=ac(ab.Parent.Parent.utility.moveable),ac(ab.Parent.Parent.utility.log),ac(ab.Parent.Parent.utility.ordering),
-8,{button=true,toggle=true,stat=true,slider=true}function ae.new(c,d)d=if typeof(d)=='table'then d else{}local e=string.
+local e=if c=='logo'then'GameIcon'else'GameThumbnail'return string.format('rbxthumb://type=%s&id=%d&w=%d&h=%d',e,b,d[1],
+d[2])end local function b(c,d)local e=ah[d]if not e then return nil end local f=if d=='logo'then
+[[https://thumbnails.roblox.com/v1/games/icons?universeIds=%d&size=%dx%d&format=Png&isCircular=false]]else
+[[https://thumbnails.roblox.com/v1/games/multiget/thumbnails?universeIds=%d&size=%dx%d&format=Png&isCircular=false]]
+return string.format(f,c,e[1],e[2])end ag.thumbnailUrl=b ag.lastUniverseId=nil local function c(d)local e,f=pcall(af.
+getRequestFn)if not e or not f then return nil end local g,h=pcall(function()return f{Url=d,Method='GET'}end)if not g
+then return nil end return h end local function d(e,f)local g=ah[f]if not e or not g then return nil end local h,i=(ag.
+thumbnailUrl)if type(h)=='function'then local j,k=pcall(h,e,f)if j then i=k end end if not i then return ai(e,f)end
+local j=c(i)if type(j)~='table'then return ai(e,f)end local k=j.Body if type(k)~='string'or k==''then return ai(e,f)end
+local l,m=pcall(function()return ae.httpService:JSONDecode(k)end)if not l or type(m)~='table'then return ai(e,f)end
+local n=m.data if type(n)~='table'then return ai(e,f)end local o=n[1]if type(o)~='table'then return ai(e,f)end if o.
+state=='Completed'and type(o.imageUrl)=='string'and o.imageUrl~=''then return o.imageUrl end return ai(e,f)end function
+ag.get(e)local f=0 pcall(function()f=game.PlaceId end)local g={name=game.Name or'..',creator=nil,description=nil,
+universeId=nil}if f==0 then e(g)return end local h,i=pcall(function()local h=game:GetService'MarketplaceService'if h.
+GetProductInfoAsync then return h:GetProductInfoAsync(f,Enum.InfoType.Asset)else return h:GetProductInfo(f)end end)if
+not h or type(i)~='table'then e(g)return end if type(i.UniverseId)=='number'and i.UniverseId~=0 then g.universeId=i.
+UniverseId end if type(i.Name)=='string'and i.Name~=''then g.name=i.Name end if type(i.Creator)=='table'and type(i.
+Creator.Name)=='string'then g.creator=i.Creator.Name end if type(i.Description)=='string'and i.Description~=''then g.
+description=i.Description end ag.lastUniverseId=g.universeId e(g)end function ag.thumbnails(e,f)if not e then f(nil,nil)
+return end task.spawn(function()local g,h=d(e,'thumbnail'),d(e,'log')if f then f(g,h)end end)end return ag end)()end,[14
+]=function()local aa,ab,ac=a(14)local ad return(function(...)local ae={}ae.__index=ae ae.__type='Group'local af,ag,ah,ai
+,b=ac(ab.Parent.Parent.utility.moveable),ac(ab.Parent.Parent.utility.log),ac(ab.Parent.Parent.utility.ordering),8,{
+button=true,toggle=true,stat=true,slider=true}function ae.new(c,d)d=if typeof(d)=='table'then d else{}local e=string.
 lower(d.direction or d.Direction or'row')local f=e=='column'or e=='vertical'local g=not f local h=if g then Enum.
 FillDirection.Horizontal else Enum.FillDirection.Vertical local i,j=setmetatable({tab=assert(c,
 'Missing argument #1 (Tab expected)'),window=c.window,direction=h,compact=g,forgetState=c.forgetState,elements={}},ae),c
@@ -2835,51 +2837,51 @@ profile(f)if not e or e.X<ag or e.Y<ag then return UDim2.fromOffset(g.defaultSiz
 min(e.X*g.maxOccupancyX,e.X-g.marginFloorX),ai(g,e.Y)if g.minAspectRatio then return d(g,h,i)end return c(g,h,i)end
 function af.ceiling(e:Vector2?,f:ae.Mode?):Vector2 local g=af.profile(f)if not e or e.X<ag or e.Y<ag then return g.
 defaultSize end local h,i=math.min(e.X*g.maxOccupancyX,e.X-g.marginFloorX),ai(g,e.Y)return Vector2.new(math.floor(h),
-math.floor(i))end return af end)()end},{{1,2,{'Rayfield'},{{35,1,{'themes'},{{39,2,{'ember'}},{38,2,{'default'}},{37,2,{
-'cobalt'}},{41,2,{'rose'}},{40,2,{'frost'}},{36,2,{'amethyst'}}}},{2,1,{'components'},{{14,2,{'group'}},{22,2,{'search'}
-},{23,2,{'section'}},{34,2,{'window'}},{33,2,{'toggle'}},{7,2,{'colorpicker'}},{31,2,{'text'}},{13,2,{'gameInfo'}},{30,2
-,{'tag'}},{29,2,{'tabSelector'}},{11,2,{'drag'}},{16,2,{'input'}},{21,2,{'resize'}},{19,2,{'popup'}},{17,2,{'keybind'}},
-{27,2,{'tab'}},{25,2,{'slider'}},{26,2,{'stat'}},{24,2,{'sidebar'}},{10,2,{'divider'}},{20,2,{'progress'}},{15,2,{'home'
-}},{28,2,{'tabSection'}},{32,2,{'toast'}},{18,2,{'notification'}},{8,2,{'console'}},{5,2,{'changelog'}},{4,2,{'button'}}
-,{6,2,{'chrome'}},{3,2,{'action'}},{12,2,{'dropdown'}},{9,2,{'descriptor'}}}},{43,1,{'utility'},{{53,2,{'functions'}},{
-48,2,{'enums'}},{58,2,{'lockable'}},{65,2,{'persistence'}},{64,2,{'path'}},{55,2,{'imageCache'}},{67,2,{
-'persistencePaths'}},{74,2,{'windowSizing'}},{56,2,{'layouts'}},{59,2,{'log'}},{72,2,{'textMetrics'}},{73,2,{'variables'
-}},{60,2,{'moveable'}},{70,2,{'runtime'}},{45,2,{'assetResolver'}},{49,2,{'filesystem'}},{46,2,{'colors'}},{66,2,{
-'persistenceConfig'}},{62,2,{'odometer'}},{54,2,{'image'}},{63,2,{'ordering'}},{61,2,{'network'}},{71,2,{'services'}},{
-51,2,{'flagNames'}},{57,2,{'locale'}},{44,2,{'HapticEngine'}},{52,2,{'fontManager'}},{69,2,{'persistenceWrite'}},{50,2,{
-'filesystemManager'}},{47,2,{'constants'}},{68,2,{'persistenceSettings'}}}},{42,2,{'types'}}}}},'0.4.1','Rayfield',
-string,task,setmetatable,error,next,table,unpack,coroutine,script,type,require,pcall,xpcall,tostring,tonumber,_VERSION
-local n,o,p,q,r,s,t=b.insert,b.remove,b.freeze or function(n)return n end,d.wrap,ae.sub,ae.match,ae.gmatch if l and r(l,
-1,4)=='Lune'then local u,v=h(g,'@lune/task')if u and v then af=v end end local u=af and af.defer local v,w,x,y,z,A,B,C,D
-=u or function(v,...)q(v)(...)end,{[1]='Folder',[2]='ModuleScript',[3]='Script',[4]='LocalScript',[5]='StringValue'},{},
-{},{},{},{},{},{}local E,F={GetFullName={{},function(E)local F,G=E.Name,E.Parent while G do F=G.Name..'.'..F G=G.Parent
-end return F end},GetChildren={{},function(E)local F={}for G in ai,D[E]do n(F,G)end return F end},GetDescendants={{},
-function(E)local F={}for G in ai,D[E]do n(F,G)for H,I in ai,G:GetDescendants()do n(F,I)end end return F end},
-FindFirstChild={{'string','boolean?'},function(E,F,G)local H=D[E]for I in ai,H do if I.Name==F then return I end end if
-G then for I in ai,H do return I:FindFirstChild(F,true)end end end},FindFirstAncestor={{'string'},function(E,F)local G=E
-.Parent while G do if G.Name==F then return G end G=G.Parent end end},WaitForChild={{'string','number?'},function(E,F)
-return E:FindFirstChild(F)end}},{}for G,H in ai,E do local I,J,K=H[1],H[2],{}for L,M in ai,I do local N,O=s(M,
-'^([^%?]+)(%??)')K[L]={N,O}end F[G]=function(L,...)if not D[L]then ah("Expected ':' not '.' calling member function "..G
-,2)end local M={...}for N,O in ai,K do local P=M[N]local Q,R,S=f(P),O[1],O[2]if P==nil and not S then ah('Argument '..P
-..' missing or nil',3)end if R~='any'and Q~=R and not(Q=='nil'and S)then ah('Argument '..N..' expects type "'..R..
-'", got "'..Q..'"',2)end end return J(L,...)end end local function G(H,I,J)local K,L=(ag({},{__mode='k'}))local function
-M(N)ah(N..' is not a valid (virtual) member of '..H..' "'..I..'"',3)end local function N(O)ah(
-'Unable to assign (virtual) property '..O..'. Property is read only',3)end local O,P={},{}P.__metatable=false P.__index=
-function(Q,R)if R=='ClassName'then return H elseif R=='Name'then return I elseif R=='Parent'then return J elseif H==
-'StringValue'and R=='Value'then return L else local S=F[R]if S then return S end end for S in ai,K do if S.Name==R then
-return S end end M(R)end P.__newindex=function(Q,R,S)if R=='ClassName'then N(R)elseif R=='Name'then I=S elseif R==
-'Parent'then if S==O then return end if J~=nil then D[J][O]=nil end J=S if S~=nil then D[S][O]=true end elseif H==
-'StringValue'and R=='Value'then L=S else M(R)end end P.__tostring=function()return I end ag(O,P)D[O]=K if J~=nil then D[
-J][O]=true end return O end local function H(I,J)local K,L,M,N=I[1],I[2],I[3],I[4]local O=w[L]local P=M and o(M,1)or O
-local Q=G(O,P,J)x[K]=Q if M then for R,S in ai,M do Q[R]=S end end if N then for R,S in ai,N do H(S,Q)end end return Q
-end local I=G('Folder','['..ad..']')for J,K in ai,ab do H(K,I)end for J,K in ai,aa do local L=x[J]y[L]=K z[L]=J local M=
-L.ClassName if M=='LocalScript'or M=='Script'then n(B,L)end end local function J(K)local L,M=K.ClassName,A[K]if M and L
-=='ModuleScript'then return c(M)end local N=y[K]local function O(P)local Q,R,S=nil,h(function()return debug.traceback(
-nil,2)end)if R then Q=S end return{Message=P,Traceback=Q}end local function P(Q)local R,S=j(Q.Message),K:GetFullName()
-local T,U=s(R,'[^:]+:(%d+): (.+)')local V if not T or not m then V=S..':*: '..(U or R)else T=k(T)local W=z[K]local X=m[W
-]local Y=T-X+1 if Y<0 then Y='?'end V=S..':'..Y..': '..U end local W=Q.Traceback if W and W~=''then V=V..'\n'..W end
-return V end if L=='LocalScript'or L=='Script'then local Q,R=i(N,O)if not Q then ah(P(R),0)end else local Q={i(N,O)}
-local R=o(Q,1)if not R then local S=o(Q,1)ah(P(S),0)end A[K]=Q return c(Q)end end function a(K)local L=x[K]
+math.floor(i))end return af end)()end},{{1,2,{'Rayfield'},{{2,1,{'components'},{{24,2,{'sidebar'}},{7,2,{'colorpicker'}}
+,{19,2,{'popup'}},{30,2,{'tag'}},{13,2,{'gameInfo'}},{33,2,{'toggle'}},{32,2,{'toast'}},{31,2,{'text'}},{8,2,{'console'}
+},{6,2,{'chrome'}},{20,2,{'progress'}},{23,2,{'section'}},{34,2,{'window'}},{17,2,{'keybind'}},{28,2,{'tabSection'}},{25
+,2,{'slider'}},{29,2,{'tabSelector'}},{9,2,{'descriptor'}},{15,2,{'home'}},{27,2,{'tab'}},{18,2,{'notification'}},{26,2,
+{'stat'}},{16,2,{'input'}},{22,2,{'search'}},{14,2,{'group'}},{3,2,{'action'}},{4,2,{'button'}},{11,2,{'drag'}},{10,2,{
+'divider'}},{21,2,{'resize'}},{12,2,{'dropdown'}},{5,2,{'changelog'}}}},{43,1,{'utility'},{{73,2,{'variables'}},{56,2,{
+'layouts'}},{66,2,{'persistenceConfig'}},{72,2,{'textMetrics'}},{47,2,{'constants'}},{65,2,{'persistence'}},{53,2,{
+'functions'}},{49,2,{'filesystem'}},{74,2,{'windowSizing'}},{51,2,{'flagNames'}},{63,2,{'ordering'}},{44,2,{
+'HapticEngine'}},{59,2,{'log'}},{58,2,{'lockable'}},{45,2,{'assetResolver'}},{71,2,{'services'}},{57,2,{'locale'}},{46,2
+,{'colors'}},{70,2,{'runtime'}},{67,2,{'persistencePaths'}},{68,2,{'persistenceSettings'}},{64,2,{'path'}},{52,2,{
+'fontManager'}},{50,2,{'filesystemManager'}},{61,2,{'network'}},{55,2,{'imageCache'}},{62,2,{'odometer'}},{48,2,{'enums'
+}},{60,2,{'moveable'}},{54,2,{'image'}},{69,2,{'persistenceWrite'}}}},{42,2,{'types'}},{35,1,{'themes'},{{38,2,{
+'default'}},{37,2,{'cobalt'}},{39,2,{'ember'}},{36,2,{'amethyst'}},{41,2,{'rose'}},{40,2,{'frost'}}}}}}},'0.4.1',
+'Rayfield',string,task,setmetatable,error,next,table,unpack,coroutine,script,type,require,pcall,xpcall,tostring,tonumber
+,_VERSION local n,o,p,q,r,s,t=b.insert,b.remove,b.freeze or function(n)return n end,d.wrap,ae.sub,ae.match,ae.gmatch if
+l and r(l,1,4)=='Lune'then local u,v=h(g,'@lune/task')if u and v then af=v end end local u=af and af.defer local v,w,x,y
+,z,A,B,C,D=u or function(v,...)q(v)(...)end,{[1]='Folder',[2]='ModuleScript',[3]='Script',[4]='LocalScript',[5]=
+'StringValue'},{},{},{},{},{},{},{}local E,F={GetFullName={{},function(E)local F,G=E.Name,E.Parent while G do F=G.Name..
+'.'..F G=G.Parent end return F end},GetChildren={{},function(E)local F={}for G in ai,D[E]do n(F,G)end return F end},
+GetDescendants={{},function(E)local F={}for G in ai,D[E]do n(F,G)for H,I in ai,G:GetDescendants()do n(F,I)end end return
+F end},FindFirstChild={{'string','boolean?'},function(E,F,G)local H=D[E]for I in ai,H do if I.Name==F then return I end
+end if G then for I in ai,H do return I:FindFirstChild(F,true)end end end},FindFirstAncestor={{'string'},function(E,F)
+local G=E.Parent while G do if G.Name==F then return G end G=G.Parent end end},WaitForChild={{'string','number?'},
+function(E,F)return E:FindFirstChild(F)end}},{}for G,H in ai,E do local I,J,K=H[1],H[2],{}for L,M in ai,I do local N,O=
+s(M,'^([^%?]+)(%??)')K[L]={N,O}end F[G]=function(L,...)if not D[L]then ah(
+"Expected ':' not '.' calling member function "..G,2)end local M={...}for N,O in ai,K do local P=M[N]local Q,R,S=f(P),O[
+1],O[2]if P==nil and not S then ah('Argument '..P..' missing or nil',3)end if R~='any'and Q~=R and not(Q=='nil'and S)
+then ah('Argument '..N..' expects type "'..R..'", got "'..Q..'"',2)end end return J(L,...)end end local function G(H,I,J
+)local K,L=(ag({},{__mode='k'}))local function M(N)ah(N..' is not a valid (virtual) member of '..H..' "'..I..'"',3)end
+local function N(O)ah('Unable to assign (virtual) property '..O..'. Property is read only',3)end local O,P={},{}P.
+__metatable=false P.__index=function(Q,R)if R=='ClassName'then return H elseif R=='Name'then return I elseif R=='Parent'
+then return J elseif H=='StringValue'and R=='Value'then return L else local S=F[R]if S then return S end end for S in ai
+,K do if S.Name==R then return S end end M(R)end P.__newindex=function(Q,R,S)if R=='ClassName'then N(R)elseif R=='Name'
+then I=S elseif R=='Parent'then if S==O then return end if J~=nil then D[J][O]=nil end J=S if S~=nil then D[S][O]=true
+end elseif H=='StringValue'and R=='Value'then L=S else M(R)end end P.__tostring=function()return I end ag(O,P)D[O]=K if
+J~=nil then D[J][O]=true end return O end local function H(I,J)local K,L,M,N=I[1],I[2],I[3],I[4]local O=w[L]local P=M
+and o(M,1)or O local Q=G(O,P,J)x[K]=Q if M then for R,S in ai,M do Q[R]=S end end if N then for R,S in ai,N do H(S,Q)end
+end return Q end local I=G('Folder','['..ad..']')for J,K in ai,ab do H(K,I)end for J,K in ai,aa do local L=x[J]y[L]=K z[
+L]=J local M=L.ClassName if M=='LocalScript'or M=='Script'then n(B,L)end end local function J(K)local L,M=K.ClassName,A[
+K]if M and L=='ModuleScript'then return c(M)end local N=y[K]local function O(P)local Q,R,S=nil,h(function()return debug.
+traceback(nil,2)end)if R then Q=S end return{Message=P,Traceback=Q}end local function P(Q)local R,S=j(Q.Message),K:
+GetFullName()local T,U=s(R,'[^:]+:(%d+): (.+)')local V if not T or not m then V=S..':*: '..(U or R)else T=k(T)local W=z[
+K]local X=m[W]local Y=T-X+1 if Y<0 then Y='?'end V=S..':'..Y..': '..U end local W=Q.Traceback if W and W~=''then V=V..
+'\n'..W end return V end if L=='LocalScript'or L=='Script'then local Q,R=i(N,O)if not Q then ah(P(R),0)end else local Q=
+{i(N,O)}local R=o(Q,1)if not R then local S=o(Q,1)ah(P(S),0)end A[K]=Q return c(Q)end end function a(K)local L=x[K]
 local function M(N,...)local O={h(N,...)}local P=o(O,1)if not P then ah(O[1],3)end return c(O)end local N=p(ag({},{
 __index=C,__newindex=function(N,O,P)C[O]=P end,__len=function()return#C end,__iter=function()return ai,C end}))local O,P
 =p{version=ac,envname=ad,shared=N,script=e,require=g},L local function Q(R,...)local S,T,U=f(R),
