@@ -688,21 +688,21 @@ local e=if c=='logo'then'Logo'else'GameThumbnail'return string.format('rbxthumb:
 [1],e[2])end ag.thumbnailUrl=b::((universeId:number,kind:string)->string?)?ag.lastUniverseId=nil::number?local function
 c(d,e)local f=ah[e]if not d or not f then return nil end local g=af.getRequestFn()if not g then return ai(d,e)end local
 h=ag.thumbnailUrl local i=if type(h)=='function'then h(d,e)else h and string.format(h,d,f[1],f[2])if not i then return
-ai(d,e)end local j,k=pcall(g,{Url=i,Method='GET'})if not j or type(k)~='table'then return nil end local l=k.Body if
-type(l)~='string'or l==''then return nil end local m,n=pcall(function()return ae.httpService:JSONDecode(l)end)if not m
-or type(n)~='table'then return nil end local o=n.data if type(o)~='table'then return nil end local p=o[1]if type(p)~=
-'table'then return nil end if p.state=='Completed'and type(p.imageUrl)=='string'then return p.imageUrl end return nil
-end function ag.get(d)local e,f=if type(game)=='table'and type(game.PlaceId)=='number'then game.PlaceId else 0,{name=
-type(game)=='table'and type(game.Name)=='string'and game.Name or'..',creator=nil,description=nil,universeId=nil}if e==0
-then d(f)return end local g,h=pcall(function()return game:GetService'MarketplaceService':GetProductInfo(e)end)if not g
-or type(h)~='table'then d(f)return end if type(h.UniverseId)=='number'and h.UniverseId~=0 then f.universeId=h.UniverseId
-end if type(h.Name)=='string'and h.Name~=''then f.name=h.Name end local i=h.Creator if type(i)=='table'and type(i.Name)
-=='string'and i.Name~=''then f.creator=i.Name end if type(h.Description)=='string'and h.Description~=''then f.
-description=h.Description end ag.lastUniverseId=f.universeId d(f)end function ag.thumbnails(d,e)if not d then e(nil,nil)
-return end task.spawn(function()local f,g=c(d,'thumbnail'),c(d,'logo')if e then e(f,g)end end)end return ag end)()end,[
-14]=function()local aa,ab,ac=a(14)local ad return(function(...)local ae={}ae.__index=ae ae.__type='Group'local af,ag,ah,
-ai,b=ac(ab.Parent.Parent.utility.moveable),ac(ab.Parent.Parent.utility.log),ac(ab.Parent.Parent.utility.ordering),8,{
-button=true,toggle=true,stat=true,slider=true}function ae.new(c,d)d=if typeof(d)=='table'then d else{}local e=string.
+ai(d,e)end local j,k=pcall(g,{Url=i,Method='GET'})if not j or type(k)~='table'then return ai(d,e)end local l=k.Body if
+type(l)~='string'or l==''then return ai(d,e)end local m,n=pcall(function()return ae.httpService:JSONDecode(l)end)if not
+m or type(n)~='table'then return ai(d,e)end local o=n.data if type(o)~='table'then return ai(d,e)end local p=o[1]if
+type(p)~='table'then return ai(d,e)end if p.state=='Completed'and type(p.imageUrl)=='string'then return p.imageUrl end
+return ai(d,e)end function ag.get(d)local e,f=if type(game)=='table'and type(game.PlaceId)=='number'then game.PlaceId
+else 0,{name=type(game)=='table'and type(game.Name)=='string'and game.Name or'..',creator=nil,description=nil,universeId
+=nil}if e==0 then d(f)return end local g,h=pcall(function()return game:GetService'MarketplaceService':GetProductInfo(e)
+end)if not g or type(h)~='table'then d(f)return end if type(h.UniverseId)=='number'and h.UniverseId~=0 then f.universeId
+=h.UniverseId end if type(h.Name)=='string'and h.Name~=''then f.name=h.Name end local i=h.Creator if type(i)=='table'and
+type(i.Name)=='string'and i.Name~=''then f.creator=i.Name end if type(h.Description)=='string'and h.Description~=''then
+f.description=h.Description end ag.lastUniverseId=f.universeId d(f)end function ag.thumbnails(d,e)if not d then e(nil,
+nil)return end task.spawn(function()local f,g=c(d,'thumbnail'),c(d,'logo')if e then e(f,g)end end)end return ag end)()
+end,[14]=function()local aa,ab,ac=a(14)local ad return(function(...)local ae={}ae.__index=ae ae.__type='Group'local af,
+ag,ah,ai,b=ac(ab.Parent.Parent.utility.moveable),ac(ab.Parent.Parent.utility.log),ac(ab.Parent.Parent.utility.ordering),
+8,{button=true,toggle=true,stat=true,slider=true}function ae.new(c,d)d=if typeof(d)=='table'then d else{}local e=string.
 lower(d.direction or d.Direction or'row')local f=e=='column'or e=='vertical'local g=not f local h=if g then Enum.
 FillDirection.Horizontal else Enum.FillDirection.Vertical local i,j=setmetatable({tab=assert(c,
 'Missing argument #1 (Tab expected)'),window=c.window,direction=h,compact=g,forgetState=c.forgetState,elements={}},ae),c
@@ -732,86 +732,84 @@ _moveElement(c,d,e)local f=table.find(c.elements,d)if not f then return end tabl
 c.elements+1)table.insert(c.elements,e,d)for g,h in c.elements do ah(h,g*10)end end function ae._setShown(c,d,e)for f,g
 in c.elements do g:_setShown(d,e)end end function ae._refreshTheme(c)for d,e in c.elements do if e._refreshTheme then e:
 _refreshTheme()end end end af(ae)return ae end)()end,[15]=function()local aa,ab,ac=a(15)local ad return(function(...)
-local ae=ab.Parent.Parent.utility local af,ag,ah,ai,b,c,d,e=ac(ae.variables),ac(ae.locale),ac(ae.image),ac(ab.Parent.
-changelog),ac(ab.Parent.gameInfo),{},{'January','February','March','April','May','June','July','August','September',
-'October','November','December'},{'th','st','nd','rd','th','th','th','th','th','th'}local function f(g)local h,i=g%10,g%
-100 if i>=11 and i<=13 then return'th'end return e[h]or'th'end local function g(h)return tostring(h)..f(h)end
-local function h()local i=af.localPlayer if i then local j=i.DisplayName or i.Name return ag.resolve'Greetings,'..' '..
-tostring(j)..'.'end return ag.resolve'Greetings'end local function i()local j=os.date'*t'local k=d[j.month]or'January'
-return string.format('%s %s, %d',k,g(j.day),j.year)end local function j(k)function k._setShown(l,m,n)if not l.main or
-not l.main.Parent then return end for o,p in l.fades do l.window:_reveal(p.instance,{[p.prop]=if m then p.to else 1},n)
-end end return k end function c.buildHeader(k,l)local m=k:Create('Frame',{Name='HomeHeader',Size=UDim2.new(1,-40,0,0),
-AutomaticSize=Enum.AutomaticSize.Y,BorderSizePixel=0,BackgroundTransparency=1,Parent=l.tabPage})k:Create('UIListLayout',
-{FillDirection=Enum.FillDirection.Vertical,SortOrder=Enum.SortOrder.LayoutOrder,Padding=UDim.new(0,2),Parent=m})local n,
-o=k:Create('TextLabel',{Text=h(),Size=UDim2.new(1,0,0,0),AutomaticSize=Enum.AutomaticSize.Y,BorderSizePixel=0,
-BackgroundTransparency=1,TextSize=22,TextXAlignment=Enum.TextXAlignment.Left,TextWrapped=true,LayoutOrder=1,
-TextTransparency=1,Parent=m},{TextColor3='TitlingColor',FontFace='TitleFont'}),k:Create('TextLabel',{Text=i(),Size=UDim2
-.new(1,0,0,0),AutomaticSize=Enum.AutomaticSize.Y,BorderSizePixel=0,BackgroundTransparency=1,TextSize=14,TextXAlignment=
-Enum.TextXAlignment.Left,TextWrapped=true,LayoutOrder=2,TextTransparency=1,Parent=m},{TextColor3='ContentColor',FontFace
-='Font'})return j{window=k,fades={{instance=n,prop='TextTransparency',to=0},{instance=o,prop='TextTransparency',to=0.6}}
-,__type='HomeHeader',main=m,name='Home'}end function c.buildWelcome(k,l,m)local n=k:Create('Frame',{Name='Welcome',Size=
-UDim2.new(1,-20,0,0),AutomaticSize=Enum.AutomaticSize.Y,BorderSizePixel=0,BackgroundColor3=Color3.fromRGB(255,255,255),
-BackgroundTransparency=1,Parent=l.tabPage},{BackgroundTransparency='ElementTransparency'})local o=k:StyleElementBody(n)k
-:Create('UIPadding',{PaddingTop=UDim.new(0,0),PaddingBottom=UDim.new(0,18),PaddingLeft=UDim.new(0,0),PaddingRight=UDim.
-new(0,0),Parent=n})k:Create('UIListLayout',{FillDirection=Enum.FillDirection.Vertical,SortOrder=Enum.SortOrder.
-LayoutOrder,Padding=UDim.new(0,14),Parent=n})local p=k:Create('Frame',{Name='Media',Size=UDim2.new(1,0,0,140),
-BorderSizePixel=0,ClipsDescendants=true,BackgroundColor3=Color3.fromRGB(255,255,255),LayoutOrder=1,
-BackgroundTransparency=1,Parent=n})k:Create('UICorner',{CornerRadius=UDim.new(0,10),Parent=p})local q=k:Create('Frame',{
-Size=UDim2.new(1,0,1,0),BackgroundColor3=Color3.fromRGB(255,255,255),BorderSizePixel=0,BackgroundTransparency=1,Parent=p
-},{BackgroundTransparency='ElementTransparency'})k:Create('UIGradient',{Rotation=270,Parent=q},{Color='ElementGradient'}
-)local function r()if not m.name then return''end if m.name==''or m.name=='..'or m.name=='.'then return''end return
-string.sub(m.name,1,1)end local s,t,u=k:Create('TextLabel',{Text=r(),Size=UDim2.fromScale(1,1),BackgroundTransparency=1,
-BorderSizePixel=0,TextSize=48,TextXAlignment=Enum.TextXAlignment.Center,TextYAlignment=Enum.TextYAlignment.Center,
-TextTransparency=1,Parent=q},{TextColor3='ContentColor',FontFace='TitleFont'}),k:Create('ImageLabel',{Image='',Size=
-UDim2.fromScale(1,1),ScaleType=Enum.ScaleType.Crop,BorderSizePixel=0,BackgroundTransparency=1,ImageTransparency=1,Parent
-=p}),k:Create('Frame',{Name='Identity',Size=UDim2.new(1,0,0,0),AutomaticSize=Enum.AutomaticSize.Y,BorderSizePixel=0,
-BackgroundTransparency=1,LayoutOrder=2,Parent=n})u.Size=UDim2.new(1,0,0,0)k:Create('UIListLayout',{FillDirection=Enum.
-FillDirection.Horizontal,SortOrder=Enum.SortOrder.LayoutOrder,Padding=UDim.new(0,12),VerticalAlignment=Enum.
-VerticalAlignment.Center,Parent=u})local v=k:Create('Frame',{Name='Logo',Size=UDim2.fromOffset(56,56),BorderSizePixel=0,
-ClipsDescendants=true,BackgroundColor3=Color3.fromRGB(255,255,255),LayoutOrder=1,BackgroundTransparency=1,Parent=u})k:
-Create('UICorner',{CornerRadius=UDim.new(0,8),Parent=v})local w,x=k:Create('ImageLabel',{Image='',Size=UDim2.fromScale(1
-,1),ScaleType=Enum.ScaleType.Crop,BorderSizePixel=0,BackgroundTransparency=1,ImageTransparency=1,Parent=v}),k:Create(
-'Frame',{Name='Text',Size=UDim2.new(1,-68,0,0),AutomaticSize=Enum.AutomaticSize.Y,BorderSizePixel=0,
-BackgroundTransparency=1,LayoutOrder=2,Parent=u})k:Create('UIListLayout',{SortOrder=Enum.SortOrder.LayoutOrder,Padding=
-UDim.new(0,2),Parent=x})local y,z,A,B=k:Create('TextLabel',{Name='Title',Text=m.name or game.Name,Size=UDim2.new(1,0,0,0
-),AutomaticSize=Enum.AutomaticSize.Y,BorderSizePixel=0,BackgroundTransparency=1,TextSize=20,TextXAlignment=Enum.
-TextXAlignment.Left,TextWrapped=true,LayoutOrder=1,TextTransparency=1,Parent=x},{TextColor3='TitlingColor',FontFace=
-'TitleFont'}),k:Create('TextLabel',{Name='Creator',Size=UDim2.new(1,0,0,0),AutomaticSize=Enum.AutomaticSize.Y,
-BorderSizePixel=0,BackgroundTransparency=1,TextSize=14,TextXAlignment=Enum.TextXAlignment.Left,TextWrapped=true,
-LayoutOrder=2,TextTransparency=1,Parent=x},{TextColor3='ContentColor',FontFace='Font'}),k:Create('TextLabel',{Name=
-'Description',Size=UDim2.new(1,0,0,0),AutomaticSize=Enum.AutomaticSize.Y,BorderSizePixel=0,BackgroundTransparency=1,
-TextSize=14,TextWrapped=true,TextXAlignment=Enum.TextXAlignment.Left,LayoutOrder=3,TextTransparency=1,Parent=n},{
-TextColor3='ContentColor',FontFace='Font'}),if m.creator then`by {m.creator}`else''z.Text=B z.Visible=B~=''A.Text=if m.
-description then tostring(m.description)else''A.Visible=m.description~=nil and m.description~=''if m.universeId then b.
-thumbnails(m.universeId,function(C,D)if k.unloaded or not n.Parent then return end local E=if C and C~=''then ah.
-resolve(C)else''if E~=''then t.Image=E t.ImageTransparency=0 s.Visible=false end local F=if D and D~=''then ah.resolve(D
-)else''if F~=''then w.Image=F w.ImageTransparency=0 end end)end return j{window=k,fades={{instance=n,prop=
-'BackgroundTransparency',to=k.theme.ElementTransparency or 0},{instance=o,prop='Transparency',to=k.theme.
-ElementStrokeTransparency},{instance=q,prop='BackgroundTransparency',to=k.theme.ElementTransparency or 0},{instance=y,
-prop='TextTransparency',to=0},{instance=z,prop='TextTransparency',to=0.55},{instance=A,prop='TextTransparency',to=0.6},{
-instance=s,prop='TextTransparency',to=0.7}},__type='Welcome',main=n,name=m.name,title=y}end function c.buildChangelog(k,
-l,m)local n=ac(ab.Parent.section).new(l,{name=ag.t"What's new"})l:_register(n)local o=k:Create('Frame',{Name='Changelog'
-,Size=UDim2.new(1,-20,0,0),AutomaticSize=Enum.AutomaticSize.Y,BorderSizePixel=0,BackgroundTransparency=1,Parent=l.
-tabPage})k:Create('UIListLayout',{SortOrder=Enum.SortOrder.LayoutOrder,Padding=UDim.new(0,ai.boxGap),Parent=o})local p=m
-if not p or#p==0 then p={{title=ag.t'Welcome',description=ag.t
-[[Thanks for opening Rayfield. Build your menu below and it stays saved between sessions.]]}}end local q={}for r,s in p
-do ai.build(k,o,s,r,function(t,u,v)table.insert(q,{instance=t,prop=u,to=v})end,{auto=true})end return j{window=k,fades=q
-,__type='Changelog',main=o,name="What's new"}end function c.new(k,l,m)m=if typeof(m)=='table'then m else{}local n=c.
-buildHeader(k,l)l:_register(n)local o={name=game.Name,creator=nil,description='Loading game information...',universeId=
-game.GameId}local p=c.buildWelcome(k,l,o)l:_register(p)local q=c.buildChangelog(k,l,m.changelog)l:_register(q)b.get(
-function(r)if k.unloaded or not l.tabPage or not l.tabPage.Parent then return end if p.main and p.main.Parent then p.
-main:Destroy()end local s=c.buildWelcome(k,l,r)l:_register(s)end)end return c end)()end,[16]=function()local aa,ab,ac=a(
-16)local ad return(function(...)local ae={}ae.__index=ae ae.__type='Input'local af=ab.Parent.Parent.utility local ag,ah,
-ai,b,c,d,e=ac(af.variables),ac(af.functions),ac(af.moveable),ac(af.lockable),ac(af.locale),ac(af.constants),ac(af.
-HapticEngine)local f,g=d.pillResizeInfo,TweenInfo.new(0.15,Enum.EasingStyle.Quint,Enum.EasingDirection.Out)
-local function h(i)local j,k=i:match'^([%d%.%-]+)%^([%d%.%-]+)$'if j and k then local l,m=tonumber(j),tonumber(k)if l
-and m then return l^m end end return tonumber(i)end function ae.new(i,j)j=if typeof(j)=='table'then j else{}local k=
-setmetatable({tab=assert(i,'Missing argument #1 (Tab expected)'),window=i.window,name=j.name or j.Name or'Input',icon=j.
-icon or j.Icon,description=j.description or j.Description,forgetState=j.forgetState or j.ForgetState or i.forgetState,
-placeholder=j.placeholder or j.Placeholder or'',numeric=j.numeric or j.Numeric or false,clearOnFocus=j.clearOnFocus or j
-.ClearOnFocus or false,callback=j.callback or j.Callback or function()end},ae)k.value=tostring(j.value or j.Value or j.
-currentValue or j.CurrentValue or'')k.flag=j.flag or j.Flag or(not k.forgetState and ah.deriveFlagFromName(k.name)or nil
-)k.window:_registerControl(k)k.main=k.window:Create('Frame',{Size=UDim2.new(1,-20,0,41),BorderSizePixel=0,Name=k.name,
+local ae=ab.Parent.Parent.utility local af,ag,ah,ai,b,c,d=ac(ae.variables),ac(ae.locale),ac(ab.Parent.changelog),ac(ab.
+Parent.gameInfo),{},{'January','February','March','April','May','June','July','August','September','October','November',
+'December'},{'th','st','nd','rd','th','th','th','th','th','th'}local function e(f)local g,h=f%10,f%100 if h>=11 and h<=
+13 then return'th'end return d[g]or'th'end local function f(g)return tostring(g)..e(g)end local function g()local h=af.
+localPlayer if h then local i=h.DisplayName or h.Name return ag.resolve'Greetings,'..' '..tostring(i)..'.'end return ag.
+resolve'Greetings'end local function h()local i=os.date'*t'local j=c[i.month]or'January'return string.format('%s %s, %d'
+,j,f(i.day),i.year)end local function i(j)function j._setShown(k,l,m)if not k.main or not k.main.Parent then return end
+for n,o in k.fades do k.window:_reveal(o.instance,{[o.prop]=if l then o.to else 1},m)end end return j end function b.
+buildHeader(j,k)local l=j:Create('Frame',{Name='HomeHeader',Size=UDim2.new(1,-40,0,0),AutomaticSize=Enum.AutomaticSize.Y
+,BorderSizePixel=0,BackgroundTransparency=1,Parent=k.tabPage})j:Create('UIListLayout',{FillDirection=Enum.FillDirection.
+Vertical,SortOrder=Enum.SortOrder.LayoutOrder,Padding=UDim.new(0,2),Parent=l})local m,n=j:Create('TextLabel',{Text=g(),
+Size=UDim2.new(1,0,0,0),AutomaticSize=Enum.AutomaticSize.Y,BorderSizePixel=0,BackgroundTransparency=1,TextSize=22,
+TextXAlignment=Enum.TextXAlignment.Left,TextWrapped=true,LayoutOrder=1,TextTransparency=1,Parent=l},{TextColor3=
+'TitlingColor',FontFace='TitleFont'}),j:Create('TextLabel',{Text=h(),Size=UDim2.new(1,0,0,0),AutomaticSize=Enum.
+AutomaticSize.Y,BorderSizePixel=0,BackgroundTransparency=1,TextSize=14,TextXAlignment=Enum.TextXAlignment.Left,
+TextWrapped=true,LayoutOrder=2,TextTransparency=1,Parent=l},{TextColor3='ContentColor',FontFace='Font'})return i{window=
+j,fades={{instance=m,prop='TextTransparency',to=0},{instance=n,prop='TextTransparency',to=0.6}},__type='HomeHeader',main
+=l,name='Home'}end function b.buildWelcome(j,k,l)local m=j:Create('Frame',{Name='Welcome',Size=UDim2.new(1,-20,0,0),
+AutomaticSize=Enum.AutomaticSize.Y,BorderSizePixel=0,BackgroundColor3=Color3.fromRGB(255,255,255),BackgroundTransparency
+=1,Parent=k.tabPage},{BackgroundTransparency='ElementTransparency'})local n=j:StyleElementBody(m)j:Create('UIPadding',{
+PaddingTop=UDim.new(0,0),PaddingBottom=UDim.new(0,18),PaddingLeft=UDim.new(0,0),PaddingRight=UDim.new(0,0),Parent=m})j:
+Create('UIListLayout',{FillDirection=Enum.FillDirection.Vertical,SortOrder=Enum.SortOrder.LayoutOrder,Padding=UDim.new(0
+,14),Parent=m})local o=j:Create('Frame',{Name='Media',Size=UDim2.new(1,0,0,140),BorderSizePixel=0,ClipsDescendants=true,
+BackgroundColor3=Color3.fromRGB(255,255,255),LayoutOrder=1,BackgroundTransparency=1,Parent=m})j:Create('UICorner',{
+CornerRadius=UDim.new(0,10),Parent=o})local p=j:Create('Frame',{Size=UDim2.new(1,0,1,0),BackgroundColor3=Color3.fromRGB(
+255,255,255),BorderSizePixel=0,BackgroundTransparency=1,Parent=o},{BackgroundTransparency='ElementTransparency'})j:
+Create('UIGradient',{Rotation=270,Parent=p},{Color='ElementGradient'})local function q()if not l.name then return''end
+if l.name==''or l.name=='..'or l.name=='.'then return''end return string.sub(l.name,1,1)end local r,s=j:Create(
+'TextLabel',{Text=q(),Size=UDim2.fromScale(1,1),BackgroundTransparency=1,BorderSizePixel=0,TextSize=48,TextXAlignment=
+Enum.TextXAlignment.Center,TextYAlignment=Enum.TextYAlignment.Center,TextTransparency=1,Parent=p},{TextColor3=
+'ContentColor',FontFace='TitleFont'}),j:Create('ImageLabel',{Image='',Size=UDim2.fromScale(1,1),ScaleType=Enum.ScaleType
+.Crop,BorderSizePixel=0,BackgroundTransparency=1,ImageTransparency=1,Parent=o})j:Create('UICorner',{CornerRadius=UDim.
+new(0,10),Parent=s})local t=j:Create('Frame',{Name='Identity',Size=UDim2.new(1,0,0,0),AutomaticSize=Enum.AutomaticSize.Y
+,BorderSizePixel=0,BackgroundTransparency=1,LayoutOrder=2,Parent=m})t.Size=UDim2.new(1,0,0,0)j:Create('UIListLayout',{
+FillDirection=Enum.FillDirection.Horizontal,SortOrder=Enum.SortOrder.LayoutOrder,Padding=UDim.new(0,12),
+VerticalAlignment=Enum.VerticalAlignment.Center,Parent=t})local u=j:Create('Frame',{Name='Logo',Size=UDim2.fromOffset(56
+,56),BorderSizePixel=0,ClipsDescendants=true,BackgroundColor3=Color3.fromRGB(255,255,255),LayoutOrder=1,
+BackgroundTransparency=1,Parent=t})j:Create('UICorner',{CornerRadius=UDim.new(0,8),Parent=u})local v=j:Create(
+'ImageLabel',{Image='',Size=UDim2.fromScale(1,1),ScaleType=Enum.ScaleType.Crop,BorderSizePixel=0,BackgroundTransparency=
+1,ImageTransparency=1,Parent=u})j:Create('UICorner',{CornerRadius=UDim.new(0,8),Parent=v})local w=j:Create('Frame',{Name
+='Text',Size=UDim2.new(1,-68,0,0),AutomaticSize=Enum.AutomaticSize.Y,BorderSizePixel=0,BackgroundTransparency=1,
+LayoutOrder=2,Parent=t})j:Create('UIListLayout',{SortOrder=Enum.SortOrder.LayoutOrder,Padding=UDim.new(0,2),Parent=w})
+local x,y,z,A=j:Create('TextLabel',{Name='Title',Text=l.name,Size=UDim2.new(1,0,0,0),AutomaticSize=Enum.AutomaticSize.Y,
+BorderSizePixel=0,BackgroundTransparency=1,TextSize=20,TextXAlignment=Enum.TextXAlignment.Left,TextWrapped=true,
+LayoutOrder=1,TextTransparency=1,Parent=w},{TextColor3='TitlingColor',FontFace='TitleFont'}),j:Create('TextLabel',{Name=
+'Creator',Size=UDim2.new(1,0,0,0),AutomaticSize=Enum.AutomaticSize.Y,BorderSizePixel=0,BackgroundTransparency=1,TextSize
+=14,TextXAlignment=Enum.TextXAlignment.Left,TextWrapped=true,LayoutOrder=2,TextTransparency=1,Parent=w},{TextColor3=
+'ContentColor',FontFace='Font'}),j:Create('TextLabel',{Name='Description',Size=UDim2.new(1,0,0,0),AutomaticSize=Enum.
+AutomaticSize.Y,BorderSizePixel=0,BackgroundTransparency=1,TextSize=14,TextWrapped=true,TextXAlignment=Enum.
+TextXAlignment.Left,LayoutOrder=3,TextTransparency=1,Parent=m},{TextColor3='ContentColor',FontFace='Font'}),if l.creator
+then`by {l.creator}`else''y.Text=A y.Visible=A~=''z.Text=if l.description then tostring(l.description)else''z.Visible=l.
+description~=nil and l.description~=''if l.universeId then ai.thumbnails(l.universeId,function(B,C)if j.unloaded or not
+m.Parent then return end if B and B~=''then s.Image=B s.ImageTransparency=0 r.Visible=false end if C and C~=''then v.
+Image=C v.ImageTransparency=0 end end)end return i{window=j,fades={{instance=m,prop='BackgroundTransparency',to=j.theme.
+ElementTransparency or 0},{instance=n,prop='Transparency',to=j.theme.ElementStrokeTransparency},{instance=p,prop=
+'BackgroundTransparency',to=j.theme.ElementTransparency or 0},{instance=x,prop='TextTransparency',to=0},{instance=y,prop
+='TextTransparency',to=0.55},{instance=z,prop='TextTransparency',to=0.6},{instance=r,prop='TextTransparency',to=0.7}},
+__type='Welcome',main=m,name=l.name,title=x}end function b.buildChangelog(j,k,l)local m=ac(ab.Parent.section).new(k,{
+name=ag.t"What's new"})k:_register(m)local n=j:Create('Frame',{Name='Changelog',Size=UDim2.new(1,-20,0,0),AutomaticSize=
+Enum.AutomaticSize.Y,BorderSizePixel=0,BackgroundTransparency=1,Parent=k.tabPage})j:Create('UIListLayout',{SortOrder=
+Enum.SortOrder.LayoutOrder,Padding=UDim.new(0,ah.boxGap),Parent=n})local o=l if not o or#o==0 then o={{title=ag.t
+'Welcome',description=ag.t[[Thanks for opening Rayfield. Build your menu below and it stays saved between sessions.]]}}
+end local p={}for q,r in o do ah.build(j,n,r,q,function(s,t,u)table.insert(p,{instance=s,prop=t,to=u})end,{auto=true})
+end return i{window=j,fades=p,__type='Changelog',main=n,name="What's new"}end function b.new(j,k,l)l=if typeof(l)==
+'table'then l else{}local m=b.buildHeader(j,k)k:_register(m)ai.get(function(n)if j.unloaded or not k.tabPage or not k.
+tabPage.Parent then return end local o=b.buildWelcome(j,k,n)k:_register(o)local p=b.buildChangelog(j,k,l.changelog)k:
+_register(p)end)end return b end)()end,[16]=function()local aa,ab,ac=a(16)local ad return(function(...)local ae={}ae.
+__index=ae ae.__type='Input'local af=ab.Parent.Parent.utility local ag,ah,ai,b,c,d,e=ac(af.variables),ac(af.functions),
+ac(af.moveable),ac(af.lockable),ac(af.locale),ac(af.constants),ac(af.HapticEngine)local f,g=d.pillResizeInfo,TweenInfo.
+new(0.15,Enum.EasingStyle.Quint,Enum.EasingDirection.Out)local function h(i)local j,k=i:match
+'^([%d%.%-]+)%^([%d%.%-]+)$'if j and k then local l,m=tonumber(j),tonumber(k)if l and m then return l^m end end return
+tonumber(i)end function ae.new(i,j)j=if typeof(j)=='table'then j else{}local k=setmetatable({tab=assert(i,
+'Missing argument #1 (Tab expected)'),window=i.window,name=j.name or j.Name or'Input',icon=j.icon or j.Icon,description=
+j.description or j.Description,forgetState=j.forgetState or j.ForgetState or i.forgetState,placeholder=j.placeholder or
+j.Placeholder or'',numeric=j.numeric or j.Numeric or false,clearOnFocus=j.clearOnFocus or j.ClearOnFocus or false,
+callback=j.callback or j.Callback or function()end},ae)k.value=tostring(j.value or j.Value or j.currentValue or j.
+CurrentValue or'')k.flag=j.flag or j.Flag or(not k.forgetState and ah.deriveFlagFromName(k.name)or nil)k.window:
+_registerControl(k)k.main=k.window:Create('Frame',{Size=UDim2.new(1,-20,0,41),BorderSizePixel=0,Name=k.name,
 BackgroundColor3=Color3.fromRGB(255,255,255),BackgroundTransparency=1,Parent=k.tab.tabPage},{BackgroundTransparency=
 'ElementTransparency'})k.stroke=k.window:StyleElementBody(k.main)k.hoverOverlay=k.window:CreateHoverOverlay(k.main)k.
 container=k.window:Create('Frame',{Size=UDim2.new(0,170,0,16),Position=UDim2.new(0,20,0.5,0),AnchorPoint=Vector2.new(0,
@@ -2837,25 +2835,25 @@ profile(f)if not e or e.X<ag or e.Y<ag then return UDim2.fromOffset(g.defaultSiz
 min(e.X*g.maxOccupancyX,e.X-g.marginFloorX),ai(g,e.Y)if g.minAspectRatio then return d(g,h,i)end return c(g,h,i)end
 function af.ceiling(e:Vector2?,f:ae.Mode?):Vector2 local g=af.profile(f)if not e or e.X<ag or e.Y<ag then return g.
 defaultSize end local h,i=math.min(e.X*g.maxOccupancyX,e.X-g.marginFloorX),ai(g,e.Y)return Vector2.new(math.floor(h),
-math.floor(i))end return af end)()end},{{1,2,{'Rayfield'},{{43,1,{'utility'},{{63,2,{'ordering'}},{47,2,{'constants'}},{
-53,2,{'functions'}},{51,2,{'flagNames'}},{74,2,{'windowSizing'}},{46,2,{'colors'}},{73,2,{'variables'}},{59,2,{'log'}},{
-70,2,{'runtime'}},{72,2,{'textMetrics'}},{45,2,{'assetResolver'}},{54,2,{'image'}},{68,2,{'persistenceSettings'}},{62,2,
-{'odometer'}},{71,2,{'services'}},{69,2,{'persistenceWrite'}},{61,2,{'network'}},{67,2,{'persistencePaths'}},{56,2,{
-'layouts'}},{66,2,{'persistenceConfig'}},{57,2,{'locale'}},{65,2,{'persistence'}},{50,2,{'filesystemManager'}},{58,2,{
-'lockable'}},{64,2,{'path'}},{49,2,{'filesystem'}},{55,2,{'imageCache'}},{44,2,{'HapticEngine'}},{52,2,{'fontManager'}},
-{60,2,{'moveable'}},{48,2,{'enums'}}}},{35,1,{'themes'},{{40,2,{'frost'}},{39,2,{'ember'}},{38,2,{'default'}},{41,2,{
-'rose'}},{36,2,{'amethyst'}},{37,2,{'cobalt'}}}},{42,2,{'types'}},{2,1,{'components'},{{10,2,{'divider'}},{15,2,{'home'}
-},{34,2,{'window'}},{23,2,{'section'}},{18,2,{'notification'}},{12,2,{'dropdown'}},{21,2,{'resize'}},{3,2,{'action'}},{5
-,2,{'changelog'}},{16,2,{'input'}},{27,2,{'tab'}},{33,2,{'toggle'}},{32,2,{'toast'}},{29,2,{'tabSelector'}},{31,2,{
-'text'}},{4,2,{'button'}},{26,2,{'stat'}},{28,2,{'tabSection'}},{17,2,{'keybind'}},{13,2,{'gameInfo'}},{30,2,{'tag'}},{
-24,2,{'sidebar'}},{25,2,{'slider'}},{22,2,{'search'}},{20,2,{'progress'}},{9,2,{'descriptor'}},{8,2,{'console'}},{14,2,{
-'group'}},{11,2,{'drag'}},{19,2,{'popup'}},{7,2,{'colorpicker'}},{6,2,{'chrome'}}}}}}},'0.4.1','Rayfield',string,task,
-setmetatable,error,next,table,unpack,coroutine,script,type,require,pcall,xpcall,tostring,tonumber,_VERSION local n,o,p,q
-,r,s,t=b.insert,b.remove,b.freeze or function(n)return n end,d.wrap,ae.sub,ae.match,ae.gmatch if l and r(l,1,4)=='Lune'
-then local u,v=h(g,'@lune/task')if u and v then af=v end end local u=af and af.defer local v,w,x,y,z,A,B,C,D=u or
-function(v,...)q(v)(...)end,{[1]='Folder',[2]='ModuleScript',[3]='Script',[4]='LocalScript',[5]='StringValue'},{},{},{},
-{},{},{},{}local E,F={GetFullName={{},function(E)local F,G=E.Name,E.Parent while G do F=G.Name..'.'..F G=G.Parent end
-return F end},GetChildren={{},function(E)local F={}for G in ai,D[E]do n(F,G)end return F end},GetDescendants={{},
+math.floor(i))end return af end)()end},{{1,2,{'Rayfield'},{{35,1,{'themes'},{{39,2,{'ember'}},{38,2,{'default'}},{37,2,{
+'cobalt'}},{41,2,{'rose'}},{40,2,{'frost'}},{36,2,{'amethyst'}}}},{2,1,{'components'},{{14,2,{'group'}},{22,2,{'search'}
+},{23,2,{'section'}},{34,2,{'window'}},{33,2,{'toggle'}},{7,2,{'colorpicker'}},{31,2,{'text'}},{13,2,{'gameInfo'}},{30,2
+,{'tag'}},{29,2,{'tabSelector'}},{11,2,{'drag'}},{16,2,{'input'}},{21,2,{'resize'}},{19,2,{'popup'}},{17,2,{'keybind'}},
+{27,2,{'tab'}},{25,2,{'slider'}},{26,2,{'stat'}},{24,2,{'sidebar'}},{10,2,{'divider'}},{20,2,{'progress'}},{15,2,{'home'
+}},{28,2,{'tabSection'}},{32,2,{'toast'}},{18,2,{'notification'}},{8,2,{'console'}},{5,2,{'changelog'}},{4,2,{'button'}}
+,{6,2,{'chrome'}},{3,2,{'action'}},{12,2,{'dropdown'}},{9,2,{'descriptor'}}}},{43,1,{'utility'},{{53,2,{'functions'}},{
+48,2,{'enums'}},{58,2,{'lockable'}},{65,2,{'persistence'}},{64,2,{'path'}},{55,2,{'imageCache'}},{67,2,{
+'persistencePaths'}},{74,2,{'windowSizing'}},{56,2,{'layouts'}},{59,2,{'log'}},{72,2,{'textMetrics'}},{73,2,{'variables'
+}},{60,2,{'moveable'}},{70,2,{'runtime'}},{45,2,{'assetResolver'}},{49,2,{'filesystem'}},{46,2,{'colors'}},{66,2,{
+'persistenceConfig'}},{62,2,{'odometer'}},{54,2,{'image'}},{63,2,{'ordering'}},{61,2,{'network'}},{71,2,{'services'}},{
+51,2,{'flagNames'}},{57,2,{'locale'}},{44,2,{'HapticEngine'}},{52,2,{'fontManager'}},{69,2,{'persistenceWrite'}},{50,2,{
+'filesystemManager'}},{47,2,{'constants'}},{68,2,{'persistenceSettings'}}}},{42,2,{'types'}}}}},'0.4.1','Rayfield',
+string,task,setmetatable,error,next,table,unpack,coroutine,script,type,require,pcall,xpcall,tostring,tonumber,_VERSION
+local n,o,p,q,r,s,t=b.insert,b.remove,b.freeze or function(n)return n end,d.wrap,ae.sub,ae.match,ae.gmatch if l and r(l,
+1,4)=='Lune'then local u,v=h(g,'@lune/task')if u and v then af=v end end local u=af and af.defer local v,w,x,y,z,A,B,C,D
+=u or function(v,...)q(v)(...)end,{[1]='Folder',[2]='ModuleScript',[3]='Script',[4]='LocalScript',[5]='StringValue'},{},
+{},{},{},{},{},{}local E,F={GetFullName={{},function(E)local F,G=E.Name,E.Parent while G do F=G.Name..'.'..F G=G.Parent
+end return F end},GetChildren={{},function(E)local F={}for G in ai,D[E]do n(F,G)end return F end},GetDescendants={{},
 function(E)local F={}for G in ai,D[E]do n(F,G)for H,I in ai,G:GetDescendants()do n(F,I)end end return F end},
 FindFirstChild={{'string','boolean?'},function(E,F,G)local H=D[E]for I in ai,H do if I.Name==F then return I end end if
 G then for I in ai,H do return I:FindFirstChild(F,true)end end end},FindFirstAncestor={{'string'},function(E,F)local G=E
